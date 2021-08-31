@@ -1,91 +1,139 @@
 import styled from '@emotion/styled'
 
 export const Wrapper = styled.div`
-    background-color: skyblue;
     width: 640px;
     height: 1138px;
-    display: flex;
     background-color: #fff;
-    flex-direction: column;
-    justify-content: space-around;
     border: 1px solid gray;
-    border-radius: 5px;
-    padding: 50px;
-    position: fixed;
-    top: 100px;
-    left: 100px;
-    right: 0;
 `
+export const Line = styled.hr`
+    width: 640px;
+    margin: 0;
+    color: #cacaca;
+`
+
+export const Statusbar = styled.div`
+    width: 640px;
+    height: 43px;
+    margin: 0;
+    padding: 5px 13px 7px 445px;
+    background-color: rgba(0, 0, 0, 0.1);
+`
+export const Category = styled.div`
+    width: 640px;
+    height: 303px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 36px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 48px;
+    border: none;
+`
+
 export const ItemWrapper = styled.div`
-    position: fixed;
-    top: 475px;
-    left: 120px;
     width: 640px;
     height: 694px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    `
-
-export const Statusbar = styled.div`
-    position: fixed;
-    top: 100px;
-    left: 100px;
-    right: 0;
-    width: 640px;
-    height: 43px;
-    margin: 0 0 36px;
-    padding: 5px 13px 7px 445px;
-    background-color: rgba(0, 0, 0, 0.1);
-}
+    justify-content: space-around;
+    padding: 29px 50px;
 `
 export const Itemdiv = styled.span`
-    
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    border: none;
+    
 `
 export const Numberdiv = styled.span`
     width: 490px;
     height: 20px;
-    margin: 0 0 14px;
-    font-family: SpoqaHanSans;
+    font: SpoqaHanSans;
     font-size: 18px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.19;
-    letter-spacing: normal;
-    color: #adadad; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    color: #adadad;
 `
 export const Questiondiv = styled.span`
     width: 490px;
     height: 26px;
     margin: 14px 0 0;
-    font-family: SpoqaHanSans;
+    font: SpoqaHanSans;
     font-size: 24px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.58;
-    letter-spacing: normal;
     color: #444;
+`
+
+export const Bottomdiv = styled.div`
+    width: 640px;
+    height: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 66px;
+    padding-right: 66px;
+`
+
+export const Bardiv = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+`
+
+export const Gray = styled.span`
+    font: SpoqaHanSans;
+    font-size: 30px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    color: #cacaca;
+`
+
+export const Pink = styled.span`
+    font: SpoqaHanSans;
+    font-size: 30px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    color: #ff1b6d;
+`
+
+export const Noticediv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 `
 
-export const Line = styled.div`
-    position: fixed;
-    top: 446px;
-    left: 100px;
-    right: 0;
-    width: 640px;
-    height: 1px;
-    margin: 50px 0 29px;
-    border: solid 1px #cacaca;
+export const SearchDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+`
+export const MyDiv = styled.div`
+    font-size: 40px;
+    font: SpoqaHanSans;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    margin-right: 295px;
+`
+
+export const Mypicdiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+
+export const Imdiv = styled.div`
+    font: SpoqaHanSans;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    margin-left: 20px;
+    margin-right: 4px;
 `

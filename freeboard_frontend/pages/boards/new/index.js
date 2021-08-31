@@ -1,4 +1,4 @@
-import {Title, Box, Picdiv,Setmaindiv, Setmain, PicButton, NameInput, Postcode, NamePw, SubmitButton, TitleInput, StoryInput, YoutubeInput, PostcodeInput, AddressInput, PostcodeSearch} from '../../../styles/boards_new'
+import {ButtonWrapper, RadioLabel, InputWrapper, Title, Box, Picdiv,Setmaindiv, Setmain, PicButton, NameInput, Postcode, NamePw, SubmitButton, TitleInput, StoryInput, YoutubeInput, PostcodeInput, AddressInput, PostcodeSearch, Label} from '../../../styles/boards_new'
 
 export default function BoardsNewPage() {
 
@@ -6,55 +6,55 @@ export default function BoardsNewPage() {
         <Box>
             <Title>게시물 등록</Title>
             <NamePw>
-                <div>
-                    작성자<br />
-                    <NameInput type="text" placeholder="이름을 적어주세요."/>
-                </div>
-                <div>
-                비밀번호<br />
-                <NameInput type="text" placeholder="비밀번호를 입력해주세요."/>
-                </div>
+                <InputWrapper>
+                    <Label>작성자</Label>
+                    <NameInput name="writer" type="text" placeholder="이름을 적어주세요."/>
+                </InputWrapper>
+                <InputWrapper>
+                    <Label>비밀번호</Label>
+                    <NameInput name="password" type="password" placeholder="비밀번호를 입력해주세요."/>
+                </InputWrapper>
             </NamePw>
-            <div>
-                제목
-                <TitleInput type="text" placeholder="제목을 작성해주세요."/>
-            </div>
-            <div>
-                내용
-                <StoryInput type="text" placeholder="내용을 작성해주세요."/>
-            </div>
-            <div>
-                주소<br />
+            <InputWrapper>
+                <Label>제목</Label>
+                <TitleInput name="title" type="text" placeholder="제목을 작성해주세요."/>
+            </InputWrapper>
+            <InputWrapper>
+                <Label>내용</Label>
+                <StoryInput name="contents" placeholder="내용을 작성해주세요."/>
+            </InputWrapper>
+            <InputWrapper>
+                <Label>주소</Label>
                 <Postcode>
-                    <PostcodeInput type="text" placeholder="07250"/>
-                    <PostcodeSearch>우편번호검색</PostcodeSearch>
+                    <PostcodeInput type="text" name="zipcode" placeholder="07250"/>
+                    <PostcodeSearch>우편번호 검색</PostcodeSearch>
                 </Postcode>
                 <AddressInput type="text" />
                 <AddressInput type="text" />
-            </div>
-            <div>
-                유튜브
+            </InputWrapper>
+            <InputWrapper>
+                <Label>유튜브</Label>
                 <YoutubeInput type="text" placeholder="링크를 복사해주세요."/>
-
-            </div>
-            사진첨부<br />
+            </InputWrapper>
             <Picdiv>
+                <Label>사진첨부</Label>
                 <PicButton>+<br />Upload</PicButton>
                 <PicButton>+<br />Upload</PicButton>
                 <PicButton>+<br />Upload</PicButton>
             </Picdiv>
-            메인설정 <br />
             <Setmaindiv>
-                <div>
-                    <Setmain type="radio" name="main"/> 유튜브
-                </div>
-                <div>
-                <Setmain type="radio" name="main"/> 사진
-                </div>
-            
+                <Label>메인설정</Label>
+                <Setmain type="radio" id="youtube" name="radio-button" /> 
+                <RadioLabel htmlFor="youtube">유튜브</RadioLabel>
+                <Setmain type="radio" id="image" name="radio-button" /> 
+                <RadioLabel htmlFor="image">사진</RadioLabel>
             </Setmaindiv>
 
-            <SubmitButton>등록하기</SubmitButton>
+            <ButtonWrapper>
+                <SubmitButton>등록하기</SubmitButton>
+            </ButtonWrapper>
+
+            
 
         </Box>
     )
