@@ -42,27 +42,32 @@ export const ItemWrapper = styled.div`
 `
 export const Itemdiv = styled.span`
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
     border: none;
     
 `
-export const Numberdiv = styled.span`
+
+export const Qdiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const Numberdiv = styled.div`
     width: 490px;
     height: 20px;
     font: SpoqaHanSans;
     font-size: 18px;
     color: #adadad;
 `
-export const Questiondiv = styled.span`
+export const Questiondiv = styled.div`
     width: 490px;
     height: 26px;
     margin: 14px 0 0;
     font: SpoqaHanSans;
     font-size: 24px;
     color: #444;
+    
 `
-
 export const Bottomdiv = styled.div`
     width: 640px;
     height: 96px;
@@ -113,6 +118,7 @@ export const SearchDiv = styled.div`
     align-items: center;
     justify-content: flex-end;
 `
+
 export const MyDiv = styled.div`
     font-size: 40px;
     font: SpoqaHanSans;
@@ -121,7 +127,6 @@ export const MyDiv = styled.div`
     font-style: normal;
     margin-right: 295px;
 `
-
 export const Mypicdiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -137,3 +142,4 @@ export const Imdiv = styled.div`
     margin-left: 20px;
     margin-right: 4px;
 `
+

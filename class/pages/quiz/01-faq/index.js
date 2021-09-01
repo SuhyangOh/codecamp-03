@@ -1,4 +1,4 @@
-import {Pink, Imdiv, Noticediv, Gray, Bardiv, Bottomdiv, Category, Line, ItemWrapper, Itemdiv, Numberdiv, Questiondiv, Statusbar, Wrapper, SearchDiv, MyDiv, Mypicdiv} from '../../../styles/Quiz01-faq'
+import {Pink, Imdiv, Qdiv, Noticediv, Gray, Bardiv, Bottomdiv, Category, Line, ItemWrapper, Itemdiv, Numberdiv, Questiondiv, Statusbar, Wrapper, SearchDiv, MyDiv, Mypicdiv} from '../../../styles/Quiz01-faq'
 
 export default function Quiz01FAQPage() {
     return(
@@ -24,57 +24,87 @@ export default function Quiz01FAQPage() {
             <Line></Line>
             <ItemWrapper>
                 <Itemdiv>
-                    <Numberdiv>
-                        Q. Q1
-                    </Numberdiv>
-                    <Questiondiv>
-                        리뷰 작성은 어떻게 하나요?
-                    </Questiondiv>
+                    <Qdiv>
+                        <Numberdiv>
+                            Q. Q1
+                        </Numberdiv>
+                        <Questiondiv>
+                            리뷰 작성은 어떻게 하나요?
+                        </Questiondiv>
+                    </Qdiv>
+                    <div>
+                        <img src="/images/rarrow.png" />
+                    </div>
                 </Itemdiv>
 
                 <Itemdiv>
-                    <Numberdiv>
-                        Q. Q2
-                    </Numberdiv>
-                    <Questiondiv>
-                        리뷰 수정/삭제는 어떻게 하나요?
-                    </Questiondiv>
+                    <Qdiv>
+                        <Numberdiv>
+                            Q. Q2
+                        </Numberdiv>
+                        <Questiondiv>
+                            리뷰 수정/삭제는 어떻게 하나요?
+                        </Questiondiv>
+                    </Qdiv>
+                    <div>
+                        <img src="/images/rarrow.png" />
+                    </div>
                 </Itemdiv>
 
                 <Itemdiv>
-                    <Numberdiv>
-                        Q. Q3
-                    </Numberdiv>
-                    <Questiondiv>
-                        아이디/비밀번호를 잊어버렸어요.
-                    </Questiondiv>
+                    <Qdiv>
+                        <Numberdiv>
+                           Q. Q3
+                        </Numberdiv>
+                        <Questiondiv>
+                            아이디/비밀번호를 잊어버렸어요.
+                        </Questiondiv>
+                    </Qdiv>
+                    <div>
+                        <img src="/images/rarrow.png" />
+                    </div>
                 </Itemdiv>
 
                 <Itemdiv>
-                    <Numberdiv>
-                        Q. Q4
-                    </Numberdiv>
-                    <Questiondiv>
-                        회원탈퇴를 하고싶어요.
-                    </Questiondiv>
+                    <Qdiv>
+                        <Numberdiv>
+                            Q. Q4
+                        </Numberdiv>
+                        <Questiondiv>
+                            회원탈퇴를 하고싶어요.
+                        </Questiondiv>
+                    </Qdiv>
+                    <div>
+                        <img src="/images/rarrow.png" />
+                    </div>
                 </Itemdiv>
 
                 <Itemdiv>
-                    <Numberdiv>
-                        Q. Q5
-                    </Numberdiv>
-                    <Questiondiv>
-                        출발지 설정은 어떻게 하나요?
-                    </Questiondiv>
+                    <Qdiv>
+                        <Numberdiv>
+                            Q. Q5
+                        </Numberdiv>
+                        <Questiondiv>
+                            출발지 설정은 어떻게 하나요?
+                        </Questiondiv>
+                    </Qdiv>
+                    <div>
+                        <img src="/images/rarrow.png" />
+                    </div>
                 </Itemdiv>
 
                 <Itemdiv>
-                    <Numberdiv>
-                        Q. Q6
-                    </Numberdiv>
-                    <Questiondiv>
-                        비밀번호를 변경하고 싶어요.
-                    </Questiondiv>
+                    <Qdiv>
+                        <Numberdiv>
+                            Q. Q6
+                        </Numberdiv>
+                        <Questiondiv>
+                            비밀번호를 변경하고 싶어요.
+                        </Questiondiv>
+                    </Qdiv>
+                    <div>
+                        <img src="/images/rarrow.png" />
+                    </div>
                 </Itemdiv>
             </ItemWrapper>
             <Line></Line>
@@ -95,7 +125,6 @@ export default function Quiz01FAQPage() {
                     <img src="/images/my.png" />
                     마이
                 </Bardiv>
-                
             </Bottomdiv>
         </Wrapper>
     )
