@@ -105,7 +105,7 @@
         //       createProductInput: {
         //         name: "상품명",
         //         detail: "디테일",
-        //               price: 1000})
+        //         price: 1000})
         //     {message}
         //   }
 

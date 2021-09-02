@@ -1,11 +1,24 @@
-import {ButtonWrapper, RadioLabel, InputWrapper, Title, Box, Picdiv,Setmaindiv, Setmain, PicButton, NameInput, Postcode, NamePw, SubmitButton, TitleInput, StoryInput, YoutubeInput, PostcodeInput, AddressInput, PostcodeSearch, Label} from '../../../styles/boards_new'
+import {ButtonWrapper, RadioLabel, InputWrapper, Title, Box, Picdiv,Setmaindiv, Setmain, PicButton, NameInput, Postcode, NamePw, SubmitButton, TitleInput, StoryInput, YoutubeInput, PostcodeInput, AddressInput, PostcodeSearch, Label, Error} from '../../../styles/boards_new'
 import { useState } from 'react';
+import { gql, useMutation } from "@apollo/client"
+
+const CREATE_BOARD = gql`
+  mutation createBoard($createBoardInput: CreateBoardInput!){
+    createBoard(
+      createBoardInput: $createBoardInput
+    ){
+      _id
+    } 
+  }
+`
 
 export default function BoardsNewPage() {
-    const [writer, setWriter] = useState('')
-    const [password, setPassword] = useState('')
-    const [title, setTitle] = useState('')
-    const [contents, setContents] = useState('')
+    const [ createBoard ] = useMutation(CREATE_BOARD)
+
+    const [mywriter, setWriter] = useState('')
+    const [mypassword, setPassword] = useState('')
+    const [mytitle, setTitle] = useState('')
+    const [mycontents, setContents] = useState('')
 
     const [writerError, setWriterError] = useState('')
     const [passwordError, setPasswordError] = useState('')
@@ -40,20 +53,33 @@ export default function BoardsNewPage() {
       }
     }
 
-    function onClickSubmit(){
-      if(writer === ""){
+    async function onClickSubmit(){
+      
+      if(mywriter === ""){
         setWriterError("작성자를 입력해주세요.")
       }
-      if(password === ""){
+      if(mypassword === ""){
         setPasswordError("비밀번호를 입력해주세요.")
       }
-      if(title === ""){
+      if(mytitle === ""){
         setTitleError("제목을 입력해주세요.")
       }
-      if(contents === ""){
+      if(mycontents === ""){
         setContentsError("내용을 입력해주세요.")
       }
-      if(writer !== "" && password !== "" && title !== "" && contents !== ""){
+      
+      if(mywriter !== "" && mypassword !== "" && mytitle !== "" && mycontents !== ""){
+        const result = await createBoard({
+          variables : {
+            createBoardInput : 
+              {
+                writer: mywriter,
+                password: mypassword,
+                title: mytitle,
+                contents: mycontents
+              }
+          }
+        })
         alert('게시물을 등록합니다~')
       }
     }
@@ -64,23 +90,23 @@ export default function BoardsNewPage() {
             <NamePw>
                 <InputWrapper>
                     <Label>작성자</Label>
-                    <NameInput name="writer" type="text" onChange={onChangeWriter} placeholder="이름을 적어주세요."/>
+                    <NameInput name="writer" type="text" placeholder="이름을 적어주세요."onChange={onChangeWriter} />
                     <Error>{writerError}</Error>
                 </InputWrapper>
                 <InputWrapper>
                     <Label>비밀번호</Label>
-                    <NameInput name="password" type="password" onChange={onChangePassword} placeholder="비밀번호를 입력해주세요."/>
+                    <NameInput name="password" type="password" placeholder="비밀번호를 입력해주세요." onChange={onChangePassword}/>
                     <Error>{passwordError}</Error>
                 </InputWrapper>
             </NamePw>
             <InputWrapper>
                 <Label>제목</Label>
-                <TitleInput name="title" type="text" onChange={onChangeTitle} placeholder="제목을 작성해주세요."/>
+                <TitleInput name="title" type="text" placeholder="제목을 작성해주세요." onChange={onChangeTitle}/>
                 <Error>{titleError}</Error>
             </InputWrapper>
             <InputWrapper>
                 <Label>내용</Label>
-                <StoryInput name="contents" onChange={onChangeContents} placeholder="내용을 작성해주세요."/>
+                <StoryInput name="contents" placeholder="내용을 작성해주세요." onChange={onChangeContents}/>
                 <Error>{contentsError}</Error>
             </InputWrapper>
             <InputWrapper>
@@ -111,7 +137,7 @@ export default function BoardsNewPage() {
             </Setmaindiv>
 
             <ButtonWrapper>
-                <SubmitButton>등록하기</SubmitButton>
+                <SubmitButton onClick={onClickSubmit}>등록하기</SubmitButton>
             </ButtonWrapper>
 
             

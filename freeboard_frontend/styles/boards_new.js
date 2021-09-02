@@ -21,10 +21,6 @@ export const Title = styled.div`
 
 `;
 
-export const InputWrapper = styled.div`
-	padding-top: 40px;
-`;
-
 export const NamePw = styled.div`
     width: 100%;
     display: flex;
@@ -33,24 +29,28 @@ export const NamePw = styled.div`
     padding-top: 40px;
 `;
 
-export const Label = styled.div`
-	padding-bottom: 16px;
-	font-size: 16px;
-	font-weight: 500;
+export const InputWrapper = styled.div`
+	padding-top: 40px;
 `;
 
 export const NameInput = styled.input`
     width: 486px;
     height: 52px;
     border: 1px solid #BDBDBD;
-    Padding: 14px 16px;
+    padding-left: 16px;
+`;
+
+export const Label = styled.div`
+	padding-bottom: 16px;
+	font-size: 16px;
+	font-weight: 500;
 `;
 
 export const TitleInput = styled.input`
     width: 996px;
     height: 52px;
     border: 1px solid #BDBDBD;
-    Padding: 14px 16px;
+    padding-left: 16px;
 `;
 
 export const StoryInput = styled.textarea`
@@ -147,5 +147,11 @@ export const SubmitButton = styled.button`
 	cursor: pointer;
 `;
 
+
+export const Error = styled.div`
+	padding-top: 10px;
+	font-size: 14px;
+	color: red;
+`
 
 
