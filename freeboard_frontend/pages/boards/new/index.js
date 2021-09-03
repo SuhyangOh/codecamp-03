@@ -1,18 +1,21 @@
 import {ButtonWrapper, RadioLabel, InputWrapper, Title, Box, Picdiv,Setmaindiv, Setmain, PicButton, NameInput, Postcode, NamePw, SubmitButton, TitleInput, StoryInput, YoutubeInput, PostcodeInput, AddressInput, PostcodeSearch, Label, Error} from '../../../styles/boards_new'
 import { useState } from 'react';
 import { gql, useMutation } from "@apollo/client"
+import { useRouter } from 'next/router';
 
 const CREATE_BOARD = gql`
-  mutation createBoard($createBoardInput: CreateBoardInput!){
-    createBoard(
-      createBoardInput: $createBoardInput
-    ){
-      _id
-    } 
-  }
+	mutation createBoard($createBoardInput: CreateBoardInput!){
+    	createBoard(
+			createBoardInput: $createBoardInput) {
+      		_id
+		} 
+	}
 `
 
 export default function BoardsNewPage() {
+
+    const router = useRouter();
+
     const [ createBoard ] = useMutation(CREATE_BOARD)
 
     const [mywriter, setWriter] = useState('')
@@ -54,36 +57,39 @@ export default function BoardsNewPage() {
     }
 
     async function onClickSubmit(){
-      
-      if(mywriter === ""){
-        setWriterError("작성자를 입력해주세요.")
-      }
-      if(mypassword === ""){
-        setPasswordError("비밀번호를 입력해주세요.")
-      }
-      if(mytitle === ""){
-        setTitleError("제목을 입력해주세요.")
-      }
-      if(mycontents === ""){
-        setContentsError("내용을 입력해주세요.")
-      }
-      
-      if(mywriter !== "" && mypassword !== "" && mytitle !== "" && mycontents !== ""){
-        const result = await createBoard({
-          variables : {
-            createBoardInput : 
-              {
-                writer: mywriter,
-                password: mypassword,
-                title: mytitle,
-                contents: mycontents
-              }
-          }
-        })
-        alert('게시물을 등록합니다~')
-      }
-    }
-
+		try {
+			if(mywriter === ""){
+				setWriterError("작성자를 입력해주세요.")
+			}
+			if(mypassword === ""){
+				setPasswordError("비밀번호를 입력해주세요.")
+			}
+			if(mytitle === ""){
+				setTitleError("제목을 입력해주세요.")
+			}
+			if(mycontents === ""){
+				setContentsError("내용을 입력해주세요.")
+			}
+			
+			if(mywriter !== "" && mypassword !== "" && mytitle !== "" && mycontents !== ""){
+				const result = await createBoard({
+				variables : {
+					createBoardInput : 
+					{
+						writer: mywriter,
+						password: mypassword,
+						title: mytitle,
+						contents: mycontents
+					}
+				}
+				})
+				alert('게시물을 등록합니다~')
+				router.push(`/boards/read/${result.data.createBoard._id}`)
+			}
+		} catch(error) {
+			console.log(error)
+		}
+	}  
     return (
         <Box>
             <Title>게시물 등록</Title>
