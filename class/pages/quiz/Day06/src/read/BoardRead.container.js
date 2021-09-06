@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client"
 import { useRouter } from "next/router"
 import QuizBoardReadUI from "./BoardRead.presenter"
-import { FETCH_BOARD } from './Boardwrite.queries'
+import { FETCH_BOARD } from "./BoardRead.queries"
 
 export default function QuizBoardRead() {
 

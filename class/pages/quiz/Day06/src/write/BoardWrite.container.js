@@ -2,7 +2,7 @@ import { useMutation} from '@apollo/client'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import QuizBoardWriteUI from './BoardWrite.presenter'
-import { CREATE_BOARD } from './Boardwrite.queries'
+import { CREATE_BOARD } from './BoardWrite.queries'
 
 export default function QuizBoardWrite() {
     const router = useRouter()
@@ -46,7 +46,7 @@ export default function QuizBoardWrite() {
             console.log(result)
             console.log(result.data.createBoard.number)
             // router.push('/05-06-dynamic-board-read/n' + result.data.createBoard.number) : 옛날 방식
-            router.push(`/05-06-dynamic-board-read/${result.data.createBoard.number}`)
+            router.push(`/quiz/Day06/board/read/${result.data.createBoard.number}`)
         
         } catch(error) {
             console.log(error)
