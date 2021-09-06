@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
 
+export const Wrapper = styled.div`
+  width: 1200px;
+  margin: 100px;
+`;
+
 export const Box = styled.div`
-    width: 1200px;
-	margin: 100px;
     padding-top: 80px;
 	padding-bottom: 100px;
 	padding-left: 102px;
@@ -15,7 +18,7 @@ export const Box = styled.div`
 `
 export const UpperDiv = styled.div`
     height: 161px;
-    width: 996px;
+    width: 100%;
     margin-bottom: 80px;
     border-bottom: 1px solid gray;
     display: flex;
@@ -28,7 +31,6 @@ export const NameDateDiv = styled.div`
     justify-content: space-around;
     display: felx;
     justify-content: flex-start;
-    padding-left: 16.67px;
 `
 export const Name = styled.div`
     width: 67px;
@@ -52,12 +54,9 @@ export const Date = styled.div`
     line-height: 24px;
     color: #828282;
 `
-export const ProfileIcon = styled.div`
-    width: 46.67px;
-    height: 46.67px;
-    background-color: #BDBDBD;
-    
-`
+export const Avatar = styled.img`
+  margin-right: 10px;
+`;
 
 export const TitleDiv = styled.div`   
     height: 54px;
@@ -88,8 +87,30 @@ export const MiddleDiv = styled.div`
 `
 
 export const BottomDiv = styled.div`
-    height : 45 px;
-    width: 996px;
-    background-color : #FFD600;
-    padding-bottom: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 100px;
 `
+
+
+export const Button = styled.button`
+    width: 179px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid gray;
+    margin: 0px 12px;
+    cursor: pointer;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    padding-top: 9.5px;
+
+  :hover {
+    background-color: gold;
+    border-color: white;
+  }
+`;
