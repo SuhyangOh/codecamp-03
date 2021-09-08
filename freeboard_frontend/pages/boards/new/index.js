@@ -1,4 +1,4 @@
-import BoardNewPage from "../../../src/board/new/BoardNew.Container"
+import BoardNewPage from "../../../src/components/units/board/new/BoardNew.Container"
 
 export default function BoardsNewPage() {
     

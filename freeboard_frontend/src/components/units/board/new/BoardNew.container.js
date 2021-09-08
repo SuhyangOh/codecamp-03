@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import {useMutation } from "@apollo/client"
-import { useRouter } from 'next/router';
+
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { CREATE_BOARD } from './BoardNew.queries'
 import BoardsNewPageUI from './BoardNew.presenter';
+import { useMutation } from "@apollo/client";
 
 export default function BoardNewPage() {
 
     const router = useRouter();
     
-    const [ createBoard ] = useMutation(CREATE_BOARD)
-
     const [mywriter, setWriter] = useState('')
     const [mypassword, setPassword] = useState('')
     const [mytitle, setTitle] = useState('')
@@ -19,6 +18,8 @@ export default function BoardNewPage() {
     const [passwordError, setPasswordError] = useState('')
     const [titleError, setTitleError] = useState('')
     const [contentsError, setContentsError] = useState('')
+
+	const [createBoard] = useMutation(CREATE_BOARD);
 
     function onChangeWriter(event){
       setWriter(event.target.value)
