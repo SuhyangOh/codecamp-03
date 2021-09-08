@@ -1,11 +1,15 @@
 import BoardWriteUI from "./BoardWrite.presenter"
 import { useMutation} from '@apollo/client'
 import { useState } from 'react'
-import { CREATE_BOARD } from "./BoardWrite.queries"
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries"
+import { OmitProps } from "antd/lib/transfer/ListBody"
+import router from "next/router"
 
-export default function BoardWrite() {
+export default function BoardWrite(props) {
 
     const [ createBoard ] = useMutation(CREATE_BOARD)
+    const [ updateBoard ] = useMutation(UPDATE_BOARD)
+
     const [myWriter, setMyWriter] = useState("")
     const [myTitle, setMyTitle] = useState("")
     const [myContents, setMyContents] = useState("")
@@ -43,8 +47,21 @@ export default function BoardWrite() {
         const result = await createBoard({
             variables: { writer: myWriter, title: myTitle, contents: myContents }
         })
-        console.log(result)
-        console.log(result.data.createBoard.number)
+        router.push(`/08-04-board-detail/${result.data.createBoard.number}`)
+    }
+
+    async function onClickEdit() {
+        try {
+            await updateBoard({
+                variables: { 
+                    number: Number(router.query.number),
+                    writer: myWriter, title: myTitle, contents: myContents }
+            })
+            router.push(`/08-04-board-detail/${router.query.number}`)
+        } catch(error) {
+            console.log(error);
+        }
+        
     }
 
 
@@ -57,6 +74,8 @@ export default function BoardWrite() {
             aaa={aaa}
             zzz={zzz}
             qqq={qqq}
+            isEdit = {props.isEdit}
+            onClickEdit={onClickEdit}
         />
 
     )

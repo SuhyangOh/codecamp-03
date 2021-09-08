@@ -19,6 +19,10 @@ export default function BoardReadPage() {
         router.push(`/boards/list`)
 
     }
+
+    function onClickMoveToBoardsList() {
+        router.push('/boards/list')
+    }
     
 
     return (
@@ -26,6 +30,7 @@ export default function BoardReadPage() {
             router={router}
             data={data}
             onClickDeleteBoard={onClickDeleteBoard}
+            onClickMoveToBoardsList={onClickMoveToBoardsList}
         />
     )
 

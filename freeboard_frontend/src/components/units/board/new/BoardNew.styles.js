@@ -138,13 +138,13 @@ export const SubmitButton = styled.button`
     padding: 14px 60px;
     width: 179px;
     height: 52px;
-    background: #FFD600;
+    background-color: ${(props) => props.isActive ? "yellow" : "gray"};
     border: none;
     font-size: 16px;
 	font-weight: 500;
     margin-left: 12px;
 	margin-right: 12px;
-	cursor: pointer;
+	cursor: ${(props) => props.isActive ? "pointer" : "default"};
 `;
 
 

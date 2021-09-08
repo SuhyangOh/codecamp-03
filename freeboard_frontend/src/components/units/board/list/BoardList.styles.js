@@ -92,10 +92,26 @@ export const Row = styled.div`
     align-items: center;
     border-bottom: 1px solid #BDBDBD;
 `
+export const ColumnHeaderTitle = styled.div`
+  width: 70%;
+  text-align: center;
+`;
+
 export const Column = styled.div`
     text-align: center;
-    width: 20%
+    width: 10%
 `
+
+export const ColumnTitle = styled.div`
+  width: 70%;
+  text-align: center;
+  cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
+`;
+
 export const BottomDiv = styled.div`
     height: 100px;
     display: flex;
@@ -123,4 +139,9 @@ export const NewButton = styled.div`
     padding-top: 14px;
     padding-left: 19px;
     padding-right: 16px;
+    cursor: pointer;
+    :hover {
+        background-color: gold;
+        border-color: white;
+      }
 `

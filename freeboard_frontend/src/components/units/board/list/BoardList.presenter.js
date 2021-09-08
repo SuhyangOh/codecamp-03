@@ -1,4 +1,4 @@
-import { Pic, Info, Title, Wrapper, Row, Column, SearchTitle, BottomDiv, Table, SearchDiv, SearchDate, SearchButton, BestDiv, Best, NewButton, Vector } from "./BoardList.styles";
+import { ColumnTitle, Pic, Info, Title, Wrapper, Row, Column, SearchTitle, BottomDiv, Table, SearchDiv, SearchDate, SearchButton, BestDiv, Best, NewButton, Vector, ColumnHeaderTitle } from "./BoardList.styles";
 
 export default function BoardListPageUI(props) {
     return(
@@ -31,14 +31,16 @@ export default function BoardListPageUI(props) {
             <Table>
                 <Row>
                     <Column>번호</Column>
-                    <Column>제목</Column>
+                    <ColumnHeaderTitle>제목</ColumnHeaderTitle>
                     <Column>작성자</Column>
                     <Column>날짜</Column>
                 </Row>
                 {props.data?.fetchBoards.map((el, index) => (
                     <Row key={el._id}>
-                        <Column>{index}</Column>
-                        <Column>{el.title}</Column>
+                        <Column>{10 - index}</Column>
+                        <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+                            {el.title}
+                        </ColumnTitle>
                         <Column>{el.writer}</Column>
                         <Column>{el.createdAt}</Column>
                     </Row>

@@ -12,10 +12,16 @@ export default function BoardListPage() {
         router.push('/boards/new')
     }
 
+
+    function onClickMoveToBoardDetail(event) {
+        router.push(`/boards/${event.target.id}`);
+    }
+
     return (
         <BoardListPageUI
             data={data}
             onClickNewPage={onClickNewPage}
+            onClickMoveToBoardDetail={onClickMoveToBoardDetail}
         />
     )
 }

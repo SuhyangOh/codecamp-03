@@ -20,7 +20,7 @@ export default function BoardReadPageUI(props) {
                 </MiddleDiv>
             </Box>
             <BottomDiv>
-                <Button>목록으로</Button>
+                <Button onClick={props.onClickMoveToBoardsList}>목록으로</Button>
                 <Button>수정하기</Button>
                 <Button onClick={props.onClickDeleteBoard}>삭제하기</Button>
             </BottomDiv>

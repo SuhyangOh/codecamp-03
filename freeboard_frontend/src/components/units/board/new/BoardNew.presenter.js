@@ -60,7 +60,7 @@ export default function BoardsNewPageUI(props) {
             </Setmaindiv>
 
             <ButtonWrapper>
-                <SubmitButton onClick={props.onClickSubmit}>등록하기</SubmitButton>
+                <SubmitButton onClick={props.onClickSubmit} isActive={props.isActive} >등록하기</SubmitButton>
             </ButtonWrapper>
 
             

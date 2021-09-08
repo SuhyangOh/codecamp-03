@@ -21,32 +21,54 @@ export default function BoardNewPage() {
 
 	const [createBoard] = useMutation(CREATE_BOARD);
 
+	const [isActive, setIsActive] = useState(false);
+
     function onChangeWriter(event){
-      setWriter(event.target.value)
-      if(event.target.value !== ""){
-        setWriterError("")
-      }
+		setWriter(event.target.value)
+		if(event.target.value !== ""){
+			setWriterError("")
+		}
+		if(event.target.value !== "" && mypassword !== "" && mytitle !== "" && mycontents !== ""){
+			setIsActive(true)
+		} else {
+			setIsActive(false)
+		}
     }
 
     function onChangePassword(event){
-      setPassword(event.target.value)
-      if(event.target.value !== ""){
-        setPasswordError("")
-      }
+    	setPassword(event.target.value)
+		if(event.target.value !== ""){
+			setPasswordError("")
+		}
+		if(mywriter !== "" && event.target.value !== "" && mytitle !== "" && mycontents !== ""){
+			setIsActive(true)
+		} else {
+			setIsActive(false)
+		}
     }
 
     function onChangeTitle(event){
-      setTitle(event.target.value)
-      if(event.target.value !== ""){
-        setTitleError("")
-      }
+		setTitle(event.target.value)
+		if(event.target.value !== ""){
+			setTitleError("")
+		}
+		if(mywriter !== "" && mypassword !== "" && event.target.value !== "" && mycontents !== ""){
+			setIsActive(true)
+		} else {
+			setIsActive(false)
+		}
     }
 
     function onChangeContents(event){
-      setContents(event.target.value)
-      if(event.target.value !== ""){
-        setContentsError("")
-      }
+		setContents(event.target.value)
+		if(event.target.value !== ""){
+			setContentsError("")
+		}
+		if(mywriter !== "" && mypassword !== "" && mytitle !== "" && event.target.value !== ""){
+			setIsActive(true)
+		} else {
+			setIsActive(false)
+		}
     }
 
     async function onClickSubmit(){
@@ -77,7 +99,7 @@ export default function BoardNewPage() {
 				}
 				})
 				alert('게시물을 등록합니다~')
-				router.push(`/boards/read/${result.data.createBoard._id}`)
+				router.push(`/boards/${result.data.createBoard._id}`)
 			}
 		} catch(error) {
 			console.log(error)
@@ -96,6 +118,8 @@ export default function BoardNewPage() {
             passwordError={passwordError}
             titleError={titleError}
             contentsError={contentsError}
+
+			isActive={isActive}
         />
     )
 }

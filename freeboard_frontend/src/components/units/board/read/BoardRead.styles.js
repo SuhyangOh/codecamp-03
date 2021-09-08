@@ -108,9 +108,8 @@ export const Button = styled.button`
     line-height: 24px;
     text-align: center;
     padding-top: 9.5px;
-
-  :hover {
-    background-color: gold;
-    border-color: white;
-  }
+    :hover {
+        background-color: gold;
+        border-color: white;
+    }
 `;
