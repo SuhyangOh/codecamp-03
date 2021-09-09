@@ -9,7 +9,8 @@ export default function BoardsNewPageUI(props) {
 
     return (
         <Box>
-            <Title>게시물 등록</Title>
+            {!props.isEdit && <Title>게시물 등록</Title>}
+            {props.isEdit && <Title>게시물 수정</Title>}
             <NamePw>
                 <InputWrapper>
                     <Label>작성자</Label>
@@ -60,7 +61,8 @@ export default function BoardsNewPageUI(props) {
             </Setmaindiv>
 
             <ButtonWrapper>
-                <SubmitButton onClick={props.onClickSubmit} isActive={props.isActive} >등록하기</SubmitButton>
+                {!props.isEdit && <SubmitButton onClick={props.onClickSubmit} isActive={props.isActive} >등록하기</SubmitButton>}
+                {props.isEdit && <SubmitButton onClick={props.onClickEdit} isActive={props.isActive} >수정하기</SubmitButton>}
             </ButtonWrapper>
 
             

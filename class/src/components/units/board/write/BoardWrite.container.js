@@ -2,7 +2,6 @@ import BoardWriteUI from "./BoardWrite.presenter"
 import { useMutation} from '@apollo/client'
 import { useState } from 'react'
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries"
-import { OmitProps } from "antd/lib/transfer/ListBody"
 import router from "next/router"
 
 export default function BoardWrite(props) {

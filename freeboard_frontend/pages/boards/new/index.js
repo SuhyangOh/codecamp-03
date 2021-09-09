@@ -2,5 +2,5 @@ import BoardNewPage from "../../../src/components/units/board/new/BoardNew.Conta
 
 export default function BoardsNewPage() {
     
-    return <BoardNewPage />
+    return <BoardNewPage isEdit={false}/>
 }

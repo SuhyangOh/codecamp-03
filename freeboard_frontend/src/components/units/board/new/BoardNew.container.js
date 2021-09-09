@@ -1,11 +1,11 @@
 
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { CREATE_BOARD } from './BoardNew.queries'
+import { CREATE_BOARD, UPDATE_BOARD } from './BoardNew.queries'
 import BoardsNewPageUI from './BoardNew.presenter';
 import { useMutation } from "@apollo/client";
 
-export default function BoardNewPage() {
+export default function BoardNewPage(props) {
 
     const router = useRouter();
     
@@ -20,6 +20,7 @@ export default function BoardNewPage() {
     const [contentsError, setContentsError] = useState('')
 
 	const [createBoard] = useMutation(CREATE_BOARD);
+	const [updateBoard] = useMutation(UPDATE_BOARD);
 
 	const [isActive, setIsActive] = useState(false);
 
@@ -70,23 +71,26 @@ export default function BoardNewPage() {
 			setIsActive(false)
 		}
     }
+	
+	function checkEmptySpace() {
+		if(mywriter === ""){
+			setWriterError("작성자를 입력해주세요.")
+		}
+		if(mypassword === ""){
+			setPasswordError("비밀번호를 입력해주세요.")
+		}
+		if(mytitle === ""){
+			setTitleError("제목을 입력해주세요.")
+		}
+		if(mycontents === ""){
+			setContentsError("내용을 입력해주세요.")
+		}
+	}
 
     async function onClickSubmit(){
 		try {
-			if(mywriter === ""){
-				setWriterError("작성자를 입력해주세요.")
-			}
-			if(mypassword === ""){
-				setPasswordError("비밀번호를 입력해주세요.")
-			}
-			if(mytitle === ""){
-				setTitleError("제목을 입력해주세요.")
-			}
-			if(mycontents === ""){
-				setContentsError("내용을 입력해주세요.")
-			}
-			
-			if(mywriter !== "" && mypassword !== "" && mytitle !== "" && mycontents !== ""){
+			checkEmptySpace
+			if(isActive){
 				const result = await createBoard({
 				variables : {
 					createBoardInput : 
@@ -106,6 +110,30 @@ export default function BoardNewPage() {
 		}
 	}  
 
+	async function onClickEdit(){
+		try {
+			checkEmptySpace();
+			if(isActive){
+				await updateBoard({
+				variables : {
+					updateBoardInput : 
+					{
+						title: mytitle,
+						contents: mycontents
+					},
+					password: mypassword,
+					boardId: router.query.boardId
+				}
+				})
+				alert('게시물을 수정합니다~')
+				router.push(`/boards/${router.query.boardId}`)
+			}
+		} catch(error) {
+			console.log(error)
+		}
+	}  
+
+
     return (
         <BoardsNewPageUI
             onChangeWriter={onChangeWriter}
@@ -120,6 +148,8 @@ export default function BoardNewPage() {
             contentsError={contentsError}
 
 			isActive={isActive}
+			isEdit={props.isEdit}
+			onClickEdit={onClickEdit}
         />
     )
 }

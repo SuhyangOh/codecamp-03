@@ -23,6 +23,10 @@ export default function BoardReadPage() {
     function onClickMoveToBoardsList() {
         router.push('/boards/list')
     }
+
+    function onClickMoveToEdit() {
+        router.push(`/boards/${router.query.boardId}/edit`)
+    }
     
 
     return (
@@ -31,6 +35,7 @@ export default function BoardReadPage() {
             data={data}
             onClickDeleteBoard={onClickDeleteBoard}
             onClickMoveToBoardsList={onClickMoveToBoardsList}
+            onClickMoveToEdit={onClickMoveToEdit}
         />
     )
 

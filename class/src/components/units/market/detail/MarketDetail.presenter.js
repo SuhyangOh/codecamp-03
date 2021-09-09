@@ -1,12 +1,12 @@
-import { useRouter } from "next/router"
 
 export default function MarketDetailPageUI(props) {
     return (
         <div>
-            판매자:{props.data?.fetchProduct.seller}<br />
-            상품명:{props.data?.fetchProduct.name}<br />
-            상품상세:{props.data?.fetchProduct.detail}<br />
-            상품가격:{props.data?.fetchProduct.price}<br />
+            판매자:{props.data? props.data.fetchProduct.seller : "loading..."}<br />
+            상품명:{props.data? props.data.fetchProduct.name : "loading..."}<br />
+            상품상세:{props.data? props.data.fetchProduct.detail : "loading..."}<br />
+            상품가격:{props.data? props.data.fetchProduct.price : "loading..."}<br />
+            <button onClick={props.onClickMoveToEdit}>수정하기</button>
         </div>
     )
 }

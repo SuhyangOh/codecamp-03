@@ -1,18 +1,18 @@
 import { useMutation } from "@apollo/client"
-import { useRouter } from "next/router"
+import router from "next/router"
 import { useState } from "react"
 import MarketNewPageUI from './MarketNew.presenter'
-import { CREATE_PRODUCT } from "./MarketNew.queries"
+import { CREATE_PRODUCT, UPDATE_PRODUCT } from "./MarketNew.queries"
 
 
-export default function MarketNewPage() {
+export default function MarketNewPage(props) {
     const [ createProduct ] = useMutation(CREATE_PRODUCT)
+    const [ updateProduct ] = useMutation(UPDATE_PRODUCT)
+
     const [ myseller, setSeller ] = useState("")
     const [ myname, setName ] = useState("")
     const [ mydetail, setDetail ] = useState("")
     const [ myprice, setPrice ] = useState("")
-
-    const router = useRouter();
 
     function onChangeSeller(event){
         setSeller(event.target.value)
@@ -47,6 +47,26 @@ export default function MarketNewPage() {
         router.push(`/week2/quiz/Day08/market/${result.data.createProduct._id}`)
     }
 
+    async function onClickEdit() {
+        try{
+            await updateProduct({
+                variables: {
+                    productId: router.query.productId,
+                    updateProductInput :
+                    {
+                        name: myname,
+                        detail: mydetail,
+                        price: Number(myprice)
+                    }
+                }
+            })
+            router.push(`/week2/quiz/Day08/market/${router.query.productId}`)
+        
+        } catch (error) {
+            console.log(error);
+        }
+        }
+
     return (
         <MarketNewPageUI 
             onChangeSeller={onChangeSeller}
@@ -54,6 +74,8 @@ export default function MarketNewPage() {
             onChangeDetail={onChangeDetail}
             onChangePrice={onChangePrice}
             onClickSubmit={onClickSubmit}
+            onClickEdit={onClickEdit}
+            isEdit = {props.isEdit}
         />
     )
 

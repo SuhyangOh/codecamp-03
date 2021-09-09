@@ -1,6 +1,6 @@
 import MarketNewPage from "../../../../../../src/components/units/market/new/MarketNew.Container";
 
-export default function GraphqlMutationProductPage() {
+export default function QuizMArketNewPage() {
     
-    return <MarketNewPage />
+    return <MarketNewPage isEdit={false} />
 }
