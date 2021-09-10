@@ -164,7 +164,7 @@ export const NewCommentInput = styled.input`
 export const NewCommentInput2 = styled.textarea`
     padding-left: 20px;
     width: 1200px;
-    height: 161px;
+    height: 108px;
     border: 1px solid #BDBDBD;
     Padding: 14px 16px;
     font: Noto Sans CJK KR;
@@ -172,6 +172,32 @@ export const NewCommentInput2 = styled.textarea`
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+    border-bottom: 1px solid #F2F2F2;
+`
+export const CommentSubmit = styled.div`
+    width: 1200px;
+    height: 52px;
+    border: 1px solid #BDBDBD;
+    border-top: none;
+    display: flex;
+    justify-content: flex-end;
+`
+
+export const CommentSubmitButton = styled.button`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 91px;
+    height: 52px;
+    background: #000000;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
 `
 
 
