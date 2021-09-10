@@ -55,7 +55,7 @@ export const Date = styled.div`
     color: #828282;
 `
 export const Avatar = styled.img`
-  margin-right: 10px;
+    margin-right: 10px;
 `;
 
 export const TitleDiv = styled.div`   
@@ -91,6 +91,8 @@ export const BottomDiv = styled.div`
     flex-direction: row;
     justify-content: center;
     padding-top: 100px;
+    padding-bottom: 87px;
+    border-bottom: 1px solid black;
 `
 
 
@@ -113,3 +115,68 @@ export const Button = styled.button`
         border-color: white;
     }
 `;
+
+export const CommentDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+export const CommentTitleDiv = styled.div`
+    
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
+    padding-top: 40px;
+	padding-bottom: 40px;
+    
+`
+export const CommentIcon = styled.img`
+    margin-right: 14px;
+`
+export const CommentTitle = styled.div`
+    width: 34px;
+    height: 27px;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+`
+
+export const NewComment = styled.div`
+`
+export const NewCommentTop = styled.div`
+    margin-bottom: 20px;
+`
+
+export const NewCommentInput = styled.input`
+    padding-left: 20px;
+    width: 180px;
+    height: 52px;
+    border: 1px solid #BDBDBD;
+    margin-right: 24px;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+`
+export const NewCommentInput2 = styled.textarea`
+    padding-left: 20px;
+    width: 1200px;
+    height: 161px;
+    border: 1px solid #BDBDBD;
+    Padding: 14px 16px;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+`
+
+
+
+export const Comments = styled.div`
+`
+
+
