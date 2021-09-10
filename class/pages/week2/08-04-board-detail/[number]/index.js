@@ -19,7 +19,7 @@ export default function BoardDetailPage(){
     })
 
     function onClickMoveToEdit() {
-        router.push(`/08-04-board-detail/${router.query.number}/edit`)
+        router.push(`/week2/08-04-board-detail/${router.query.number}/edit`)
     }
 
     return (

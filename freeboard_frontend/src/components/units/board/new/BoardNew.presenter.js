@@ -14,7 +14,7 @@ export default function BoardsNewPageUI(props) {
             <NamePw>
                 <InputWrapper>
                     <Label>작성자</Label>
-                    <NameInput name="writer" type="text" placeholder="이름을 적어주세요."onChange={props.onChangeWriter} />
+                    <NameInput name="writer" type="text" placeholder="이름을 적어주세요."onChange={props.onChangeWriter} defaultValue={props.data?.fetchBoard.writer} />
                     <Error>{props.writerError}</Error>
                 </InputWrapper>
                 <InputWrapper>
@@ -25,12 +25,12 @@ export default function BoardsNewPageUI(props) {
             </NamePw>
             <InputWrapper>
                 <Label>제목</Label>
-                <TitleInput name="title" type="text" placeholder="제목을 작성해주세요." onChange={props.onChangeTitle}/>
+                <TitleInput name="title" type="text" placeholder="제목을 작성해주세요." onChange={props.onChangeTitle} defaultValue={props.data?.fetchBoard.title}/>
                 <Error>{props.titleError}</Error>
             </InputWrapper>
             <InputWrapper>
                 <Label>내용</Label>
-                <StoryInput name="contents" placeholder="내용을 작성해주세요." onChange={props.onChangeContents}/>
+                <StoryInput name="contents" placeholder="내용을 작성해주세요." onChange={props.onChangeContents} defaultValue={props.data?.fetchBoard.contents}/>
                 <Error>{props.contentsError}</Error>
             </InputWrapper>
             <InputWrapper>
@@ -62,7 +62,7 @@ export default function BoardsNewPageUI(props) {
 
             <ButtonWrapper>
                 {!props.isEdit && <SubmitButton onClick={props.onClickSubmit} isActive={props.isActive} >등록하기</SubmitButton>}
-                {props.isEdit && <SubmitButton onClick={props.onClickEdit} isActive={props.isActive} >수정하기</SubmitButton>}
+                {props.isEdit && <SubmitButton onClick={props.onClickEdit} >수정하기</SubmitButton>}
             </ButtonWrapper>
 
             

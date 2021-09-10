@@ -40,6 +40,13 @@ export const NameInput = styled.input`
     padding-left: 16px;
 `;
 
+export const PasswordInput = styled.input`
+    width: 996px;
+    height: 52px;
+    border: 1px solid #BDBDBD;
+    padding-left: 16px;
+`;
+
 export const Label = styled.div`
 	padding-bottom: 16px;
 	font-size: 16px;

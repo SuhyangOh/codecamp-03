@@ -112,24 +112,17 @@ export default function BoardNewPage(props) {
 
 	async function onClickEdit(){
 		try {
-			checkEmptySpace();
-			if(isActive){
-				await updateBoard({
+			await updateBoard({
 				variables : {
-					updateBoardInput : 
-					{
-						title: mytitle,
-						contents: mycontents
-					},
 					password: mypassword,
-					boardId: router.query.boardId
+					boardId: router.query.boardId,
+					updateBoardInput: { title: mytitle, contents: mycontents, },
 				}
-				})
-				alert('게시물을 수정합니다~')
-				router.push(`/boards/${router.query.boardId}`)
-			}
+			})
+			alert('게시물을 수정합니다~')
+			router.push(`/boards/${router.query.boardId}`)
 		} catch(error) {
-			console.log(error)
+			console.log(error.message)
 		}
 	}  
 
@@ -150,6 +143,7 @@ export default function BoardNewPage(props) {
 			isActive={isActive}
 			isEdit={props.isEdit}
 			onClickEdit={onClickEdit}
+			data={props.data}
         />
     )
 }
