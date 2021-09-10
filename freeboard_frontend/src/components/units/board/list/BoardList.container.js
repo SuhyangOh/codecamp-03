@@ -4,24 +4,23 @@ import BoardListPageUI from "./BoardList.presenter";
 import { FETCH_BOARDS } from "./BoardList.queries";
 
 export default function BoardListPage() {
-    const { data } = useQuery(FETCH_BOARDS)
-    
-    const router = useRouter();
+  const { data } = useQuery(FETCH_BOARDS);
 
-    function onClickNewPage() {
-        router.push('/boards/new')
-    }
+  const router = useRouter();
 
+  function onClickNewPage() {
+    router.push("/boards/new");
+  }
 
-    function onClickMoveToBoardDetail(event) {
-        router.push(`/boards/${event.target.id}`);
-    }
+  function onClickMoveToBoardDetail(event) {
+    router.push(`/boards/${event.target.id}`);
+  }
 
-    return (
-        <BoardListPageUI
-            data={data}
-            onClickNewPage={onClickNewPage}
-            onClickMoveToBoardDetail={onClickMoveToBoardDetail}
-        />
-    )
+  return (
+    <BoardListPageUI
+      data={data}
+      onClickNewPage={onClickNewPage}
+      onClickMoveToBoardDetail={onClickMoveToBoardDetail}
+    />
+  );
 }
