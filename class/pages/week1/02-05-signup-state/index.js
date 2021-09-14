@@ -20,16 +20,16 @@ export default function SignUpStatePage() {
     }
 
     function onClickSignuup() {
-        //console.log('email : ', email)
-        //console.log('password1: ', password1)
-        //console.log('password2: ', password2)
+        // console.log('email : ', email)
+        // console.log('password1: ', password1)
+        // console.log('password2: ', password2)
         
         if (!email.includes("@")) {
-            //alert("@가 없습니다.")
+            // alert("@가 없습니다.")
             setEmailError("@가 없습니다.")
         } 
         if (password1 !== password2) {
-            //alert("비밀번호1과 2가 다릅니다.")
+            // alert("비밀번호1과 2가 다릅니다.")
         }
     }
 

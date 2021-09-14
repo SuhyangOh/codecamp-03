@@ -89,7 +89,7 @@ export default function BoardNewPage(props) {
 
     async function onClickSubmit(){
 		try {
-			checkEmptySpace
+			checkEmptySpace()
 			if(isActive){
 				const result = await createBoard({
 				variables : {

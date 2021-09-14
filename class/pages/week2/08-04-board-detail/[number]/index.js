@@ -33,9 +33,9 @@ export default function BoardDetailPage(){
             <div>게시글 제목: {data ? data.fetchBoard.title : "loading..."}</div>
             <div>게시글 내용: {data ? data.fetchBoard.contents : "loading..."}</div> */}
             
-            {/*========================================= */}
+            {/* ========================================= */}
             <button onClick={onClickMoveToEdit}>수정하러 이동하기</button>
-            {/*========================================= */}
+            {/* ========================================= */}
         </>
     )
 
