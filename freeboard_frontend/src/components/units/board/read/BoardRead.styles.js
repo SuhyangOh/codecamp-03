@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
-  margin: 100px;
 `;
 
 export const Box = styled.div`
@@ -90,7 +88,8 @@ export const BottomDiv = styled.div`
   justify-content: center;
   padding-top: 100px;
   padding-bottom: 87px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: none;
 `;
 
 export const Button = styled.button`

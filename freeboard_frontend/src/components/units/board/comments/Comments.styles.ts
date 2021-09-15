@@ -3,8 +3,7 @@ import styled from "@emotion/styled";
 export const CommentDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
-  margin: 100px;
+  
 `;
 export const CommentTitleDiv = styled.div`
   display: flex;
@@ -63,9 +62,28 @@ export const CommentSubmit = styled.div`
   border: 1px solid #bdbdbd;
   border-top: none;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  //justify-content: center;
   margin-bottom: 42px;
 `;
+
+export const Length = styled.div`
+    width: 43px;
+    height: 24px;
+    margin-left: 20px;
+    margin-right: 1045px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #BDBDBD;
+    
+
+`
 
 export const CommentSubmitButton = styled.button<{ isActive: boolean }>`
   display: flex;
