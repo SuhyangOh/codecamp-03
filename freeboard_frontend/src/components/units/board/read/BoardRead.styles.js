@@ -1,17 +1,27 @@
 import styled from "@emotion/styled";
+import { Tooltip } from "@material-ui/core";
 
 export const Wrapper = styled.div`
 `;
+export const IconWrapper = styled.div`
+    text-align: center;
+`;
+
+export const LinkIcon = styled.img`
+    margin-right: 30px;
+`;
+
+export const LocationIcon = styled.img``;
 
 export const Box = styled.div`
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    padding-top: 80px;
+    padding-bottom: 100px;
+    padding-left: 102px;
+    padding-right: 102px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 `;
 export const UpperDiv = styled.div`
   height: 161px;
@@ -28,7 +38,20 @@ export const NameDateDiv = styled.div`
   justify-content: space-around;
   display: felx;
   justify-content: flex-start;
+  margin-right: 700px;
 `;
+
+export const ToolTipDiv = styled(Tooltip)`
+    :hover span {
+        font: Noto Sans CJK KR;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: right;
+    }
+    
+`
 export const Name = styled.div`
   height: 36px;
 
@@ -99,6 +122,7 @@ export const Button = styled.button`
   border: 1px solid gray;
   margin: 0px 12px;
   cursor: pointer;
+  padding-bottom: 14px;
   font: Noto Sans CJK KR;
   font-style: normal;
   font-weight: 500;

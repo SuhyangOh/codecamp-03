@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import ReactPlayer from "react-player";
 
 export const Box = styled.div`
   width: 1200px;
@@ -156,4 +157,8 @@ export const Error = styled.div`
   padding-top: 10px;
   font-size: 14px;
   color: red;
+`;
+
+export const Youtube = styled(ReactPlayer)`
+  margin: auto;
 `;

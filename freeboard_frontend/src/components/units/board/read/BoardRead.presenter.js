@@ -10,9 +10,16 @@ import {
   TitleDiv,
   UpperDiv,
   Wrapper,
+  LocationIcon,
+  LinkIcon,
+  IconWrapper,
+  ToolTipDiv,
 } from "./BoardRead.styles";
+import ReactPlayer from 'react-player'
 
 import { CommentDiv, CommentIcon, CommentTitle, CommentTitleDiv } from "../comments/Comments.styles";
+import { Youtube } from "../new/BoardNew.styles";
+import { Tooltip } from "@material-ui/core";
 
 export default function BoardReadPageUI(props) {
   return (
@@ -20,21 +27,35 @@ export default function BoardReadPageUI(props) {
         <Wrapper>
             <Box>
                 <UpperDiv>
-                <Avatar src="/images/avatar.png" />
-                <NameDateDiv>
-                    <Name>
-                    {props.data ? props.data.fetchBoard.writer : "loading..."}
-                    </Name>
-                    <Date>
-                    {props.data ? props.data.fetchBoard.createdAt : "loading..."}
-                    </Date>
-                </NameDateDiv>
+                    <Avatar src="/images/avatar.png" />
+                    <NameDateDiv>
+                        <Name>
+                        {props.data ? props.data.fetchBoard.writer : "loading..."}
+                        </Name>
+                        <Date> Date : 
+                        {props.data ? props.data.fetchBoard.createdAt.slice(0,10) : "loading..."}
+                        </Date>
+                    </NameDateDiv>
+                    <IconWrapper>
+                        <LinkIcon src="/images/link.png" />
+                        <ToolTipDiv
+                        placement="topRight"
+                        title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+                        >
+                            <LocationIcon src="/images/location.png" />
+                        </ToolTipDiv>
+                    </IconWrapper>
                 </UpperDiv>
                 <TitleDiv>
                 {props.data ? props.data.fetchBoard.title : "loading..."}
                 </TitleDiv>
                 <MiddleDiv>
                 {props.data ? props.data.fetchBoard.contents : "loading..."}
+                <Youtube
+                    url={props.data?.fetchBoard.youtubeUrl}
+                    width="486px"
+                    height="240px"
+                />
                 </MiddleDiv>
             </Box>
             <BottomDiv>

@@ -1,3 +1,5 @@
+import Modal from "antd/lib/modal/Modal";
+import DaumPostcode from "react-daum-postcode";
 import {
   ButtonWrapper,
   RadioLabel,
@@ -74,15 +76,28 @@ export default function BoardsNewPageUI(props) {
       <InputWrapper>
         <Label>주소</Label>
         <Postcode>
-          <PostcodeInput type="text" name="zipcode" placeholder="07250" />
-          <PostcodeSearch>우편번호 검색</PostcodeSearch>
+            <PostcodeInput type="text" name="zipcode" placeholder="07250" 
+            readOnly
+              value={
+                props.zipcode || props.data?.fetchBoard.boardAddress?.zipcode
+              }/>
+            <PostcodeSearch onClick={props.onToggleZipcode}>우편번호 검색</PostcodeSearch>
+            {props.addressIsOpen && (
+                <Modal visible={true} onCancel={props.onToggleZipcode}>
+                        <DaumPostcode onComplete={props.handleComplete} />;
+                    </Modal>
+            )}
         </Postcode>
-        <AddressInput type="text" />
-        <AddressInput type="text" />
+        <AddressInput readOnly
+            value={
+              props.address || props.data?.fetchBoard.boardAddress?.address
+            }/>
+        <AddressInput type="text" onChange={props.onChangeMyAddressDetail}
+        defaultValue={props.data?.fetchBoard.boardAddress?.addressDetail}/>
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
-        <YoutubeInput type="text" placeholder="링크를 복사해주세요." />
+        <YoutubeInput onChange={props.onChangeYoutube} type="text" placeholder="링크를 복사해주세요." />
       </InputWrapper>
       <Picdiv>
         <Label>사진첨부</Label>

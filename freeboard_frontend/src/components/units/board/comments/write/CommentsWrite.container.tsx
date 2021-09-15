@@ -20,6 +20,8 @@ export default function BoardCommentsWrite(props) {
     const [commentIsActive, setCommentIsActive] = useState(false);
     const [contextLength, setContextLength] = useState(0);
 
+    const [updateCommentActive, setUpdateCommentActive] = useState(false)
+
     function handleRate(value: number) {
         setMyCommentRate(value);
     }
@@ -49,14 +51,15 @@ export default function BoardCommentsWrite(props) {
 
     function onChangeCommentPassword(event) {
         setCommentPassword(event.target.value);
+        setUpdateCommentActive(true)
         if (
         myCommentWriter !== "" &&
         event.target.value !== "" &&
         myCommentContents !== ""
         ) {
-        setCommentIsActive(true);
+            setCommentIsActive(true);
         } else {
-        setCommentIsActive(false);
+            setCommentIsActive(false);
         }
     }
 
@@ -111,7 +114,6 @@ export default function BoardCommentsWrite(props) {
             alert("비밀번호가 입력되지 않았습니다.");
             return;
         }
-
         try {
             await updateBoardComment({
                 variables: {
@@ -132,6 +134,9 @@ export default function BoardCommentsWrite(props) {
         }
     }
     
+    
+    
+
     return (
         <BoardCommentsWriteUI
             onChangeCommentContents={onChangeCommentContents}
@@ -149,7 +154,7 @@ export default function BoardCommentsWrite(props) {
             
             contextLength={contextLength}
             handleRate={handleRate}
-            myCommentRate={myCommentRate}
+            updateCommentActive={updateCommentActive}
         />
     );
 }

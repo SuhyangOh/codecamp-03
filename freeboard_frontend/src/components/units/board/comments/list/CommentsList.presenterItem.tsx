@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { Rate } from "antd";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { IMutation, IMutationDeleteBoardCommentArgs } from "../../../../../commons/types/generated/types";
@@ -65,7 +66,7 @@ export default function BoardCommentListUIItem(props) {
                         <CommentTop>
                             <MainWrapper>
                                 <CommentName>{props.el?.writer}</CommentName>
-                                <CommentStar>{props.el?.rating}</CommentStar>
+                                <Rate value={props.el?.rating} disabled={true}/>
                             </MainWrapper>
                             <OptionWrapper>
                                 <UpdateIcon

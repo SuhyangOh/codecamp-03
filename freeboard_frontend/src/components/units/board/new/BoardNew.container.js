@@ -71,7 +71,30 @@ export default function BoardNewPage(props) {
 			setIsActive(false)
 		}
     }
-	
+    const[myYoutube, setMyYoutube] = useState("")
+    function onChangeYoutube(event) {
+        setMyYoutube(event.target.value);
+    }
+
+    const [myZipCode, setMyZipCode] = useState("");
+	const [myAddress, setMyAddress] = useState("");
+    const [myAddressDetail, setMyAddressDetail] = useState("");
+	const [addressIsOpen, setAddressIsOpen] = useState(false);
+
+	const handleComplete = (data) => {
+		setMyAddress(data.address);
+		setMyZipCode(data.zonecode);
+		setAddressIsOpen(false);
+	};
+
+	function onToggleZipcode() {
+		setAddressIsOpen((prev) => !prev);
+	}
+
+    function onChangeMyAddressDetail(event) {
+        setMyAddressDetail(event.target.value)
+    }
+
 	function checkEmptySpace() {
 		if(mywriter === ""){
 			setWriterError("작성자를 입력해주세요.")
@@ -90,6 +113,9 @@ export default function BoardNewPage(props) {
     async function onClickSubmit(){
 		try {
 			checkEmptySpace()
+            console.log(myZipCode)
+            console.log(myAddress)
+            console.log(myAddressDetail)
 			if(isActive){
 				const result = await createBoard({
 				variables : {
@@ -98,7 +124,13 @@ export default function BoardNewPage(props) {
 						writer: mywriter,
 						password: mypassword,
 						title: mytitle,
-						contents: mycontents
+						contents: mycontents,
+                        youtubeUrl: myYoutube,
+                        boardAddress: {
+                            zipcode: myZipCode,
+                            address: myAddress,
+                            addressDetail: myAddressDetail,
+                        },
 					}
 				}
 				})
@@ -124,7 +156,7 @@ export default function BoardNewPage(props) {
 		} catch(error) {
 			console.log(error.message)
 		}
-	}  
+	} 
 
 
     return (
@@ -144,6 +176,13 @@ export default function BoardNewPage(props) {
 			isEdit={props.isEdit}
 			onClickEdit={onClickEdit}
 			data={props.data}
+            onChangeYoutube={onChangeYoutube}
+            handleComplete={handleComplete}
+            onToggleZipcode={onToggleZipcode}
+            onChangeMyAddressDetail={onChangeMyAddressDetail}
+            addressIsOpen={addressIsOpen}
+            myAddress={myAddress}
+            myZipCode={myZipCode}
         />
     )
 }
