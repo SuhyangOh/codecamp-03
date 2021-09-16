@@ -49,9 +49,15 @@ export default function BoardCommentsWrite(props) {
         }
     }
 
-    function onChangeCommentPassword(event) {
+    function onChangeUpdateCommentPassword(event) {
+        console.log(1)
         setCommentPassword(event.target.value);
         setUpdateCommentActive(true)
+    }
+
+    function onChangeCommentPassword(event) {
+        setCommentPassword(event.target.value);
+        console.log(updateCommentActive)
         if (
         myCommentWriter !== "" &&
         event.target.value !== "" &&

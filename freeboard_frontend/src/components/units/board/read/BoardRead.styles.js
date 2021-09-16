@@ -42,14 +42,7 @@ export const NameDateDiv = styled.div`
 `;
 
 export const ToolTipDiv = styled(Tooltip)`
-    :hover span {
-        font: Noto Sans CJK KR;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: right;
-    }
+    
     
 `
 export const Name = styled.div`

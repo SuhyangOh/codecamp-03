@@ -13,13 +13,11 @@ import {
   LocationIcon,
   LinkIcon,
   IconWrapper,
-  ToolTipDiv,
 } from "./BoardRead.styles";
-import ReactPlayer from 'react-player'
 
 import { CommentDiv, CommentIcon, CommentTitle, CommentTitleDiv } from "../comments/Comments.styles";
 import { Youtube } from "../new/BoardNew.styles";
-import { Tooltip } from "@material-ui/core";
+import { Tooltip } from "antd";
 
 export default function BoardReadPageUI(props) {
   return (
@@ -38,12 +36,11 @@ export default function BoardReadPageUI(props) {
                     </NameDateDiv>
                     <IconWrapper>
                         <LinkIcon src="/images/link.png" />
-                        <ToolTipDiv
-                        placement="topRight"
-                        title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
-                        >
+                        <Tooltip
+                            placement="topRight"
+                            title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+                            />
                             <LocationIcon src="/images/location.png" />
-                        </ToolTipDiv>
                     </IconWrapper>
                 </UpperDiv>
                 <TitleDiv>
