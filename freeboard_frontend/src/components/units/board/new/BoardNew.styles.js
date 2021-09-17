@@ -72,19 +72,30 @@ export const Postcode = styled.div`
 `;
 
 export const PostcodeInput = styled.input`
-  width: 77px;
-  height: 52px;
-  border: 1px solid #bdbdbd;
-  padding: 16px;
+    width: 77px;
+    height: 52px;
+    border: 1px solid #bdbdbd;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
 `;
 
 export const PostcodeSearch = styled.button`
-  width: 124px;
-  height: 52px;
-  margin-left: 16px;
-  background: #000000;
-  color: #ffffff;
-  cursor: pointer;
+    width: 124px;
+    height: 52px;
+    margin-left: 16px;
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    font: Noto Sans CJK KR;
+    font-style: normal;
+    font-weight: normal;
 `;
 
 export const AddressInput = styled.input`

@@ -11,7 +11,7 @@ export default function BoardsDetailPage() {
     return (
         <Wrapper>
             <BoardReadPage />
-            <BoardCommentsWrite />
+            <BoardCommentsWrite isEdit={false}/>
             <BoardCommentsList />
         </Wrapper>
     );

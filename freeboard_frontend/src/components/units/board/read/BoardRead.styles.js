@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Tooltip } from "@material-ui/core";
+import { Tooltip } from "antd";
 
 export const Wrapper = styled.div`
 `;
@@ -41,10 +41,6 @@ export const NameDateDiv = styled.div`
   margin-right: 700px;
 `;
 
-export const ToolTipDiv = styled(Tooltip)`
-    
-    
-`
 export const Name = styled.div`
   height: 36px;
 

@@ -26,7 +26,7 @@ export default function BoardCommentsWriteUI(props) {
                         defaultValue={props.el.writer}
                     />}
                     <NewCommentInput
-                        onChange={props.}
+                        onChange={props.onChangeCommentPassword}
                         name="commentpassword"
                         type="password"
                         placeholder="비밀번호"
@@ -64,7 +64,8 @@ export default function BoardCommentsWriteUI(props) {
                     {props.isEdit && 
                         <CommentSubmitButton
                             onClick={props.onClickCommentUpdate}
-                            isActive={props.update}
+                            // isActive={props.updateCommentIsActive}
+                            isActive={true}
                         >
                             수정하기
                         </CommentSubmitButton>

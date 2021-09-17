@@ -79,7 +79,7 @@ export default function BoardsNewPageUI(props) {
             <PostcodeInput type="text" name="zipcode" placeholder="07250" 
             readOnly
               value={
-                props.zipcode || props.data?.fetchBoard.boardAddress?.zipcode
+                props.myZipCode || props.data?.fetchBoard.boardAddress?.zipcode
               }/>
             <PostcodeSearch onClick={props.onToggleZipcode}>우편번호 검색</PostcodeSearch>
             {props.addressIsOpen && (
@@ -90,7 +90,7 @@ export default function BoardsNewPageUI(props) {
         </Postcode>
         <AddressInput readOnly
             value={
-              props.address || props.data?.fetchBoard.boardAddress?.address
+              props.myAddress || props.data?.fetchBoard.boardAddress?.address
             }/>
         <AddressInput type="text" onChange={props.onChangeMyAddressDetail}
         defaultValue={props.data?.fetchBoard.boardAddress?.addressDetail}/>
@@ -129,7 +129,7 @@ export default function BoardsNewPageUI(props) {
           </SubmitButton>
         )}
         {props.isEdit && (
-          <SubmitButton onClick={props.onClickEdit}>수정하기</SubmitButton>
+          <SubmitButton onClick={props.onClickEdit} isActive={true}>수정하기</SubmitButton>
         )}
       </ButtonWrapper>
     </Box>

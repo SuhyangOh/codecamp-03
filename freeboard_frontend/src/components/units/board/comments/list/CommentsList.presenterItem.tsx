@@ -8,7 +8,6 @@ import {
     Comments,
     CommentTop,
     CommentName,
-    CommentStar,
     CommentContentsDiv,
     CommentDate,
     Avatar2,

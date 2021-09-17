@@ -20,3 +20,18 @@ function solution(numbers) {
 		return a - b;
 	});
 }
+
+function solution2(numbers) {
+    let answer = [];
+
+    numbers.forEach( (num1, i) => {
+        numbers.slice(i + 1, numbers.length).forEach( num2 => {
+            if (!answer.includes(num1 + num2)) {
+				answer.push(num1 + num2);
+			}
+        })
+    })
+    return answer.sort((a, b) => {
+		return a - b;
+	});
+}

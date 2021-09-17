@@ -5,10 +5,11 @@ import { quiz13Styles } from "../src/commons/styles/quiz13Styles";
 import Quiz13Layout from "../src/components/commons/Quiz13";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Layout from "../src/components/commons/layout";
 
 function MyApp({ Component, pageProps }) {
 	const client = new ApolloClient({
-		uri: "http://example.codebootcamp.co.kr/graphql",
+		uri: "http://backend03.codebootcamp.co.kr/graphql",
 		cache: new InMemoryCache(),
 	});
 
@@ -16,9 +17,9 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<Global styles={quiz13Styles} />
 			<ApolloProvider client={client}>
-				<Quiz13Layout>
+				<Layout>
 					<Component {...pageProps} />
-				</Quiz13Layout>
+				</Layout>
 			</ApolloProvider>
 		</>
 	);

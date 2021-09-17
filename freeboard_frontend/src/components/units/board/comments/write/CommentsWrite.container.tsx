@@ -16,11 +16,9 @@ export default function BoardCommentsWrite(props) {
     const [myCommentPassword, setCommentPassword] = useState("");
     const [myCommentContents, setCommentContents] = useState("");
     const [myCommentRate, setMyCommentRate] = useState(0);
-
     const [commentIsActive, setCommentIsActive] = useState(false);
     const [contextLength, setContextLength] = useState(0);
-
-    const [updateCommentActive, setUpdateCommentActive] = useState(false)
+    const [updateCommentIsActive, setUpdateCommentIsActive] = useState(false)
 
     function handleRate(value: number) {
         setMyCommentRate(value);
@@ -49,15 +47,10 @@ export default function BoardCommentsWrite(props) {
         }
     }
 
-    function onChangeUpdateCommentPassword(event) {
-        console.log(1)
-        setCommentPassword(event.target.value);
-        setUpdateCommentActive(true)
-    }
-
     function onChangeCommentPassword(event) {
         setCommentPassword(event.target.value);
-        console.log(updateCommentActive)
+        // setUpdateCommentIsActive(true)
+        console.log(props.isEdit)
         if (
         myCommentWriter !== "" &&
         event.target.value !== "" &&
@@ -134,7 +127,7 @@ export default function BoardCommentsWrite(props) {
                 },
                 ],
         });
-            props.setIsEdit?.(false);
+            props.setIsEdit(false);
         } catch (error) {
             alert(error.message);
         }
@@ -160,7 +153,7 @@ export default function BoardCommentsWrite(props) {
             
             contextLength={contextLength}
             handleRate={handleRate}
-            updateCommentActive={updateCommentActive}
+            updateCommentIsActive={updateCommentIsActive}
         />
     );
 }

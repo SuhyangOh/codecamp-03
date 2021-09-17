@@ -13,11 +13,13 @@ import {
   LocationIcon,
   LinkIcon,
   IconWrapper,
+  TooltipDiv
 } from "./BoardRead.styles";
 
 import { CommentDiv, CommentIcon, CommentTitle, CommentTitleDiv } from "../comments/Comments.styles";
 import { Youtube } from "../new/BoardNew.styles";
 import { Tooltip } from "antd";
+
 
 export default function BoardReadPageUI(props) {
   return (
@@ -39,8 +41,9 @@ export default function BoardReadPageUI(props) {
                         <Tooltip
                             placement="topRight"
                             title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
-                            />
+                            >
                             <LocationIcon src="/images/location.png" />
+                        </Tooltip>
                     </IconWrapper>
                 </UpperDiv>
                 <TitleDiv>
