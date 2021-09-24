@@ -91,6 +91,11 @@ export const Row = styled.div`
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid #BDBDBD;
+    cursor: pointer;
+
+  :hover {
+    color: blue;
+  }
 `
 export const ColumnHeaderTitle = styled.div`
   width: 70%;
@@ -105,18 +110,13 @@ export const Column = styled.div`
 export const ColumnTitle = styled.div`
   width: 70%;
   text-align: center;
-  cursor: pointer;
-
-  :hover {
-    color: blue;
-  }
+  
 `;
 
 export const BottomDiv = styled.div`
     height: 100px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
 `
 export const Vector = styled.img`
     width: 18px;
@@ -125,8 +125,6 @@ export const Vector = styled.img`
 `
 
 export const NewButton = styled.div`
-    display: flex;
-    flex-direction: row;
     text-align: center;
     width: 171px;
     height: 52px;

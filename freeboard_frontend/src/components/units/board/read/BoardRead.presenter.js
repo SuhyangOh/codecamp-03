@@ -12,8 +12,7 @@ import {
   Wrapper,
   LocationIcon,
   LinkIcon,
-  IconWrapper,
-  TooltipDiv
+  IconWrapper
 } from "./BoardRead.styles";
 
 import { CommentDiv, CommentIcon, CommentTitle, CommentTitleDiv } from "../comments/Comments.styles";

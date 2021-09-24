@@ -32,7 +32,7 @@ export default function Layout(props) {
 			<LayoutHeader />
 			<SidebarWrapper>
 				<Sidebar>여기는 사이드바</Sidebar>
-				<Body>{props.children}</Body>;
+				<Body>{props.children}</Body>
 			</SidebarWrapper>
 			{!isHiddenFooter && <LayoutFooter />}
 			{/* <Footer>여기는 푸터</Footer> */}

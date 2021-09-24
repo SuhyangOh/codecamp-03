@@ -43,6 +43,18 @@ export const NewCommentInput = styled.input`
   font-size: 16px;
   line-height: 24px;
 `;
+export const UpdateCommentInput = styled.input`
+  padding-left: 20px;
+  width: 180px;
+  height: 52px;
+  border: 1px solid #bdbdbd;
+  margin-right: 24px;
+  font: Noto Sans CJK KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+`;
 
 export const NewCommentInput2 = styled.textarea`
   padding-left: 20px;

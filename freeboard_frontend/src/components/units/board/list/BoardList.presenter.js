@@ -1,5 +1,5 @@
 import { ColumnTitle, Pic, Info, Title, Wrapper, Row, Column, SearchTitle, BottomDiv, Table, SearchDiv, SearchDate, SearchButton, BestDiv, Best, NewButton, Vector, ColumnHeaderTitle } from "./BoardList.styles";
-
+import PaginationsPage from '../../../commons/paginations/01/Paginations01.containter'
 export default function BoardListPageUI(props) {
     return(
         <Wrapper>
@@ -36,9 +36,9 @@ export default function BoardListPageUI(props) {
                     <Column>날짜</Column>
                 </Row>
                 {props.data?.fetchBoards.map((el, index) => (
-                    <Row key={el._id}>
+                    <Row key={el._id} id={el._id} onClick={props.onClickMoveToBoardDetail}>
                         <Column>{10 - index}</Column>
-                        <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+                        <ColumnTitle >
                             {el.title}
                         </ColumnTitle>
                         <Column>{el.writer}</Column>
@@ -47,6 +47,12 @@ export default function BoardListPageUI(props) {
                 ))}
             </Table>
             <BottomDiv>
+                <PaginationsPage 
+                    refetch={props.refetch}
+                    count={props.count}
+                    startPage={props.startPage}
+                    setStartPage={props.setStartPage}
+                />
                 <NewButton onClick={props.onClickNewPage}><Vector src="/images/Vector.png" />게시물 등록하기</NewButton>
             </BottomDiv>
         </Wrapper>

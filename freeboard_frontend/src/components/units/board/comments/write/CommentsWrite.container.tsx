@@ -10,6 +10,11 @@ import {
 import BoardCommentsWriteUI from "./CommentsWrite.presenter";
 
 export default function BoardCommentsWrite(props) {
+
+    let a = 0;
+    if (props.isEdit) {
+       a = props.el.context.length;
+    }
     const router = useRouter();
 
     const [myCommentWriter, setCommentWriter] = useState("");
@@ -17,8 +22,10 @@ export default function BoardCommentsWrite(props) {
     const [myCommentContents, setCommentContents] = useState("");
     const [myCommentRate, setMyCommentRate] = useState(0);
     const [commentIsActive, setCommentIsActive] = useState(false);
-    const [contextLength, setContextLength] = useState(0);
+    const [contextLength, setContextLength] = useState(a);
     const [updateCommentIsActive, setUpdateCommentIsActive] = useState(false)
+
+    
 
     function handleRate(value: number) {
         setMyCommentRate(value);
@@ -62,7 +69,9 @@ export default function BoardCommentsWrite(props) {
         }
     }
 
+
     function onChangeCommentContents(event) {
+        console.log(props.isEdit)
         setContextLength(event.target.value.length)
         setCommentContents(event.target.value);
         if (

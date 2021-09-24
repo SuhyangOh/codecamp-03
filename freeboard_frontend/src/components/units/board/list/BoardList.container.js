@@ -1,26 +1,36 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import BoardListPageUI from "./BoardList.presenter";
-import { FETCH_BOARDS } from "./BoardList.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
 
 export default function BoardListPage() {
-  const { data } = useQuery(FETCH_BOARDS);
+    const[startPage, setStartPage] = useState(1);
+    const { data, refetch } = useQuery(FETCH_BOARDS,{
+        variables: {page: startPage}
+    });
 
-  const router = useRouter();
+    const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
 
-  function onClickNewPage() {
-    router.push("/boards/new");
-  }
+    const router = useRouter();
 
-  function onClickMoveToBoardDetail(event) {
-    router.push(`/boards/${event.target.id}`);
-  }
+    function onClickNewPage() {
+        router.push("/boards/new");
+    }
 
-  return (
-    <BoardListPageUI
-      data={data}
-      onClickNewPage={onClickNewPage}
-      onClickMoveToBoardDetail={onClickMoveToBoardDetail}
-    />
-  );
+    function onClickMoveToBoardDetail(event) {
+        router.push(`/boards/${event.currentTarget.id}`);
+    }
+
+    return (
+        <BoardListPageUI
+        data={data}
+        onClickNewPage={onClickNewPage}
+        onClickMoveToBoardDetail={onClickMoveToBoardDetail}
+        refetch={refetch}
+        count={dataBoardsCount?.fetchBoardsCount}
+        startPage={startPage}
+        setStartPage={setStartPage}
+        />
+    );
 }
