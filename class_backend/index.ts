@@ -25,8 +25,8 @@ const typeDefs = gql`
 	type Query {
 		fetchBoard: Board
 		fetchBoards: [Board]
-		# fetchProdcut: Product
-		# fetchProducts: [Product]
+		fetchProduct(productId: ID): ProductReturn
+		fetchProducts(page: Int): [ProductReturn!]
 	}
 	type Mutation {
 		# createBoard(writer: String, title: String, age: Int): Return
@@ -41,6 +41,7 @@ const typeDefs = gql`
 			productId: ID
 			updateProductInput: UpdateProductInput!
 		): Return
+		deleteProduct(productId: ID): Return
 	}
 	input CreateProductInput {
 		name: String
@@ -48,6 +49,13 @@ const typeDefs = gql`
 		price: Int
 	}
 	input UpdateProductInput {
+		name: String
+		detail: String
+		price: Int
+	}
+	type ProductReturn {
+		_id: ID
+		seller: String
 		name: String
 		detail: String
 		price: Int
@@ -74,12 +82,31 @@ const resolvers = {
 			const result = await Board.find({ where: { deletedAt: null } });
 			return result;
 		},
+		fetchProduct: async (_: any, args: any) => {
+			const result = await Product.findOne({
+				where: {
+					_id: args.productId,
+					deletedAt: null,
+				},
+			});
+			return result;
+		},
+		fetchProducts: async (_: any, args: any) => {
+			const result = await Product.find({
+				where: {
+					page: args.page,
+					deletedAt: null,
+				},
+			});
+			return result;
+		},
 	},
 	Mutation: {
 		createBoard: async (_: any, args: any) => {
 			// 데이터 베이스에 데이터 입력하기
 			const result = await Board.insert({
 				...args.createBoardInput,
+				createdAt: new Date(),
 				// title: args.createBoardInput.title,
 				// writer: args.createBoardInput.writer,
 				// age: args.createBoardInput.age,
@@ -118,6 +145,18 @@ const resolvers = {
 			);
 			return {
 				message: "수정완료",
+				_id: args.productId,
+			};
+		},
+		deleteProduct: async (_: any, args: any) => {
+			const result = await Product.update(
+				{ _id: args.productId },
+				{
+					deletedAt: new Date(),
+				}
+			);
+			return {
+				message: "삭제완료",
 				_id: args.productId,
 			};
 		},
