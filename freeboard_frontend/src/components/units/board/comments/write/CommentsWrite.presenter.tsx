@@ -42,8 +42,8 @@ export default function BoardCommentsWriteUI(props) {
 
                         </Length>
                         <CommentSubmitButton
-                                onClick={props.onClickSubmitComment}
-                                isActive={props.commentIsActive}
+                            onClick={props.onClickSubmitComment}
+                            isActive={props.commentIsActive}
                             >
                             등록하기
                         </CommentSubmitButton>
@@ -77,6 +77,7 @@ export default function BoardCommentsWriteUI(props) {
 
                     </Length>
                     <CommentSubmitButton
+                            id={props.el?._id}
                             onClick={props.onClickCommentUpdate}
                             // isActive={props.updateCommentIsActive}
                             isActive={true}

@@ -13,7 +13,7 @@ export default function BoardCommentsWrite(props) {
 
     let a = 0;
     if (props.isEdit) {
-       a = props.el.context.length;
+       a = props.el?.contents.length;
     }
     const router = useRouter();
 
@@ -57,7 +57,6 @@ export default function BoardCommentsWrite(props) {
     function onChangeCommentPassword(event) {
         setCommentPassword(event.target.value);
         // setUpdateCommentIsActive(true)
-        console.log(props.isEdit)
         if (
         myCommentWriter !== "" &&
         event.target.value !== "" &&
@@ -71,7 +70,6 @@ export default function BoardCommentsWrite(props) {
 
 
     function onChangeCommentContents(event) {
-        console.log(props.isEdit)
         setContextLength(event.target.value.length)
         setCommentContents(event.target.value);
         if (
@@ -141,9 +139,6 @@ export default function BoardCommentsWrite(props) {
             alert(error.message);
         }
     }
-    
-    
-    
 
     return (
         <BoardCommentsWriteUI

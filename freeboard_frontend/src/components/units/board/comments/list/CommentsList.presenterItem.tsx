@@ -18,7 +18,7 @@ import {
     MainWrapper,
     CommentDiv,
   } from "../Comments.styles";
-import BoardCommentsWrite from "../write/CommentsWrite.presenter";
+import BoardCommentsWrite from "../write/CommentsWrite.container";
 
 
 export default function BoardCommentListUIItem(props) {
@@ -33,7 +33,6 @@ export default function BoardCommentListUIItem(props) {
     function onClickUpdate() {
         setIsEdit(true)
     }
-
     async function onClickDelete() {
         const myPassword = prompt("비밀번호를 입력해 주세요.");
         try {
