@@ -12,7 +12,14 @@ import {
   Wrapper,
   LocationIcon,
   LinkIcon,
-  IconWrapper
+  IconWrapper,
+  LikeWrapper,
+  LikeIcon,
+  LikeCount,
+  DislikeIcon,
+  DislikeCount,
+  ImageWrapper,
+  Image
 } from "./BoardRead.styles";
 
 import { CommentDiv, CommentIcon, CommentTitle, CommentTitleDiv } from "../comments/Comments.styles";
@@ -46,8 +53,15 @@ export default function BoardReadPageUI(props) {
                     </IconWrapper>
                 </UpperDiv>
                 <TitleDiv>
-                {props.data ? props.data.fetchBoard.title : "loading..."}
+                    {props.data ? props.data.fetchBoard.title : "loading..."}
                 </TitleDiv>
+                <ImageWrapper>
+                    {props.data?.fetchBoard.images // ["고양이이미지.png", "강아지이미지.png"]     ""  " "
+                    ?.filter((el: string) => el) // ["고양이이미지.png", "강아지이미지.png"]
+                    .map((el: string) => (
+                        <Image key={el} src={`https://storage.googleapis.com/${el}`} />
+                    ))}
+                </ImageWrapper>
                 <MiddleDiv>
                 {props.data ? props.data.fetchBoard.contents : "loading..."}
                 <Youtube
@@ -56,6 +70,16 @@ export default function BoardReadPageUI(props) {
                     height="240px"
                 />
                 </MiddleDiv>
+                <LikeWrapper>
+            <IconWrapper>
+              <LikeIcon onClick={props.onClickLike} />
+              <LikeCount>{props.data?.fetchBoard.likeCount}</LikeCount>
+            </IconWrapper>
+            <IconWrapper>
+              <DislikeIcon onClick={props.onClickDislike} />
+              <DislikeCount>{props.data?.fetchBoard.dislikeCount}</DislikeCount>
+            </IconWrapper>
+          </LikeWrapper>
             </Box>
             <BottomDiv>
                 <Button onClick={props.onClickMoveToBoardsList}>목록으로</Button>

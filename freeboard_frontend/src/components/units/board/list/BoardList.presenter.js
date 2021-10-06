@@ -23,9 +23,9 @@ export default function BoardListPageUI(props) {
                 </Best>
             </BestDiv>
             <SearchDiv>
-                <SearchTitle input="text" placeholder="제목을 검색해주세요."></SearchTitle>
+                <SearchTitle input="text" placeholder="제목을 검색해주세요." onChange={props.onChangeSearch}></SearchTitle>
                 <SearchDate input="text" placeholder="YYYY.MM.DD ~ YYYY.MM.DD"></SearchDate>
-                <SearchButton>검색하기</SearchButton>
+                <SearchButton onClick={props.onClickSearch}>검색하기</SearchButton>
             </SearchDiv>
             
             <Table>

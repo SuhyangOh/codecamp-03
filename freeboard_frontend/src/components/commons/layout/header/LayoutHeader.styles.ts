@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-    height: 150px;
+    height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center ;
-    background-color: #006241;
+    background-color: beige;
     font:  Freight Sans;
     font-style: bold;
     font-size: 50px;
@@ -25,14 +25,18 @@ export const WhiteDiv = styled.div`
     background-color: white;
     width: auto;
 `
+export const Titlediv = styled.div`
+    font: Lander;
+    font-style: bold;
+`
 
 export const BlackDiv = styled.div`
-    height: 10px;
+    height: 5px;
     background-color: black;
     width: auto;
 `
 export const LoginDiv = styled.div`
-    font-size: 30px;
+    font-size: 20px;
     display: flex;
 
 `

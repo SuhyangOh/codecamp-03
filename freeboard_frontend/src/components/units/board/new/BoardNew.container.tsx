@@ -4,8 +4,16 @@ import { useState } from "react";
 import { CREATE_BOARD, UPDATE_BOARD } from './BoardNew.queries'
 import BoardsNewPageUI from './BoardNew.presenter';
 import { useMutation } from "@apollo/client";
+import { UPLOAD_FILE } from "../../../commons/uploads/01/Uploads01.queries";
 
 export default function BoardNewPage(props) {
+    const [files, setFiles] = useState<(File | null)[]>([null, null, null]); 
+    
+    function onChangeFiles(file: File, index: number) {
+        const newFiles = [...files];
+        newFiles[index] = file;
+        setFiles(newFiles);
+    }
 
     const router = useRouter();
     
@@ -110,12 +118,15 @@ export default function BoardNewPage(props) {
 		}
 	}
 
+    const [uploadFile] = useMutation(UPLOAD_FILE);
+
     async function onClickSubmit(){
 		try {
 			checkEmptySpace()
-            console.log(myZipCode)
-            console.log(myAddress)
-            console.log(myAddressDetail)
+            const uploadFiles = files.map((el) => (el ? uploadFile({ variables: { file: el } }) : null));
+            const results = await Promise.all(uploadFiles); 
+            const myImages = results.map((el) => el?.data.uploadFile.url || ""); 
+            
 			if(isActive){
 				const result = await createBoard({
 				variables : {
@@ -131,6 +142,7 @@ export default function BoardNewPage(props) {
                             address: myAddress,
                             addressDetail: myAddressDetail,
                         },
+                        images: myImages,
 					}
 				}
 				})
@@ -183,6 +195,8 @@ export default function BoardNewPage(props) {
             addressIsOpen={addressIsOpen}
             myAddress={myAddress}
             myZipCode={myZipCode}
+
+            onChangeFiles={onChangeFiles}
         />
     )
 }

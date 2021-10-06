@@ -4,9 +4,9 @@ import LayoutBanner from "./banner/LayoutBanner.container";
 import LayoutNavigation from "./navigation/LayoutNavigation.container";
 
 const Body = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export default function Layout(props) {

@@ -22,6 +22,20 @@ export default function BoardListPage() {
         router.push(`/boards/${event.currentTarget.id}`);
     }
 
+    const [mySearch, setMySearch] = useState("");
+	const [myKeyword, setMyKeyword] = useState("");
+
+    function onChangeSearch(event) {
+		setMySearch(event.target.value);
+	}
+
+    function onClickSearch(event) {
+		refetch({
+			search: mySearch,
+		});
+		setMyKeyword(mySearch);
+	}
+
     return (
         <BoardListPageUI
         data={data}
@@ -31,6 +45,8 @@ export default function BoardListPage() {
         count={dataBoardsCount?.fetchBoardsCount}
         startPage={startPage}
         setStartPage={setStartPage}
+        onChangeSearch={onChangeSearch}
+        onClickSearch={onClickSearch}
         />
     );
 }

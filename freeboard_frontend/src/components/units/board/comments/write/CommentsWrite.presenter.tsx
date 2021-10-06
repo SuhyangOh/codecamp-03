@@ -64,7 +64,7 @@ export default function BoardCommentsWriteUI(props) {
                         type="password"
                         placeholder="비밀번호"
                     />
-                    <Rate onChange={props.handleRate} defaultValue={props.el.rate}/>
+                    <Rate onChange={props.handleRate} value={props.el.rate}/>
                 </NewCommentTop>
                 <NewCommentInput2
                         onChange={props.onChangeCommentContents}

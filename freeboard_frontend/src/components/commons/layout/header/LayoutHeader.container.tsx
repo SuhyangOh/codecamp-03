@@ -7,10 +7,18 @@ export default function LayoutHeader() {
     function onClickMoveToBoardList(event) {
         router.push(`/boards/list`);
     }
+    function onClickSignIn(event) {
+        router.push(`/login`)
+    }
+    function onClickMyStarbucks() {
+        router.push(`/mystarbucks`)
+    }
 
     return (
         <LayoutHeaderUI 
             onClickMoveToBoardList={onClickMoveToBoardList}
+            onClickSignIn={onClickSignIn}
+            onClickMyStarbucks={onClickMyStarbucks}
         />
 
     )

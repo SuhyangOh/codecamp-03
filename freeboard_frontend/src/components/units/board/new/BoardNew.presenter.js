@@ -9,7 +9,6 @@ import {
   Picdiv,
   Setmaindiv,
   Setmain,
-  PicButton,
   NameInput,
   Postcode,
   NamePw,
@@ -23,6 +22,7 @@ import {
   Label,
   Error,
 } from "./BoardNew.styles";
+import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
 
 export default function BoardsNewPageUI(props) {
   return (
@@ -101,18 +101,13 @@ export default function BoardsNewPageUI(props) {
       </InputWrapper>
       <Picdiv>
         <Label>사진첨부</Label>
-        <PicButton>
-          +<br />
-          Upload
-        </PicButton>
-        <PicButton>
-          +<br />
-          Upload
-        </PicButton>
-        <PicButton>
-          +<br />
-          Upload
-        </PicButton>
+        {new Array(3).fill(1).map((el, index) => (
+            <Uploads01
+              key={`${el}_${index}`}
+              index={index}
+              onChangeFiles={props.onChangeFiles}
+            />
+          ))}
       </Picdiv>
       <Setmaindiv>
         <Label>메인설정</Label>

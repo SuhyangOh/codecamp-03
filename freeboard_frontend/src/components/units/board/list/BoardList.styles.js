@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 
 
 export const Wrapper = styled.div`
-    width: 1200px;
-    margin: 100px;
+    width: 95%
 `
 export const Title = styled.div`
     height: 42px;
@@ -24,7 +23,7 @@ export const BestDiv = styled.div`
     justify-content: space-between;
 `
 export const Best = styled.div`
-    width: 282px;
+    width: 23%;
     height: 257px;
     left: 360px;
     top: 778px;
@@ -49,20 +48,21 @@ export const SearchDiv = styled.div`
 `
 
 export const SearchTitle = styled.input`
-    width: 776px;
+    width: 65%;
     height: 52px;
     background: #F2F2F2;
     border-radius: 10px;
+    padding: 20px;
 `
 export const SearchDate = styled.input`
-    width: 224px;
+    width: 20%;
     height: 52px;
     border: 1px solid #bdbdbd;
     text-align: center;
 `
 
 export const SearchButton = styled.button`
-    width: 94px;
+    width: 10%;
     height: 52px;
     border: 1px solid black;
     background: #000000;
@@ -73,6 +73,7 @@ export const SearchButton = styled.button`
     line-height: 24px;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer
 `
 
 export const Table = styled.div`

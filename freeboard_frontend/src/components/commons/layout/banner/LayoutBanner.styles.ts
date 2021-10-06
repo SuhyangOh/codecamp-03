@@ -1,15 +1,11 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-    height: 700px;
-
     background-color: #006241;
+    padding-bottom: 40px;
 `;
 
 export const SliderItem = styled.img`
-    height: 600px;
+    width: 100%;
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  
 `;
