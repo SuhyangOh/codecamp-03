@@ -1,89 +1,59 @@
-// 서울에서 김서방 찾기
-// String형 배열 seoul의 element중 "Kim"의 위치 x를 찾아, 
-// "김서방은 x에 있다"는 String을 반환하는 함수, solution을 완성하세요. 
-// seoul에 "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
+// 문자열 내 p와 y의 개수
+// 문제 설명
+// 대문자와 소문자가 섞여있는 문자열 s가 주어집니다.
+// s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True,
+// 다르면 False를 return 하는 solution를 완성하세요.
+// 'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다.
+//  단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
 
-// 제한 사항
-// seoul은 길이 1 이상, 1000 이하인 배열입니다.
-// seoul의 원소는 길이 1 이상, 20 이하인 문자열입니다.
-// "Kim"은 반드시 seoul 안에 포함되어 있습니다.
+// 예를 들어 s가 "pPoooyY"면 true를 return하고 "Pyy"라면 false를 return합니다.
 
-function solution(seoul) {
-    let location = 0;
-    for (let i = 0; i < seoul.length; i++) {
-        if (seoul[i] === "Kim") {
-            location = i;
-            break;
-        }
-    }
-    return "김서방은 " + location + "에 있다";
-}
-
-function findKim(seoul){
-    var idx = seoul.indexOf('Kim');
-    return "김서방은 " + idx + "에 있다";
-  }
-
-// 문자열 다루기 기본
-// 문자열 s의 길이가 4 혹은 6이고, 
-// 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 
-// 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
-
-// 제한 사항
-// s는 길이 1 이상, 길이 8 이하인 문자열입니다.
+// 제한사항
+// 문자열 s의 길이 : 50 이하의 자연수
+// 문자열 s는 알파벳으로만 이루어져 있습니다.
 
 function solution(s) {
-    if (s.length === 4 || s.length === 6) {
-        for (let i = 0; i < s.length; i++) {
-            if (isNaN(Number(s[i]))) {
-                return false;
-            }
-        }
-        return true;
-    }
-    return false;
+	s = s.toLowerCase();
+	let p = 0;
+	let y = 0;
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] === "p") {
+			p += 1;
+		} else if (s[i] === "y") {
+			y += 1;
+		}
+	}
+
+	return p === y;
 }
 
-function solution(s) {
-    if (s.length !== 4 || s.length !== 6) {
-        return false;
-    }
-    // 문자열을 배열로 만둘어준다.
-    const answer = s.split("").filter(str => isNaN(str) === true)
-    if (s.length > 0) {
-        return false;
-    }
-    return true;
-}
-
-// 약수의 합
-// 정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
+// 이상한 문자 만들기
+// 문제 설명
+// 문자열 s는 한 개 이상의 단어로 구성되어 있습니다.
+// 각 단어는 하나 이상의 공백문자로 구분되어 있습니다.
+// 각 단어의 짝수번째 알파벳은 대문자로, 홀수번째 알파벳은 소문자로 바꾼 문자열을 리턴하는 함수,
+// solution을 완성하세요.
 
 // 제한 사항
-// n은 0 이상 3000이하인 정수입니다.
+// 문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수 인덱스를 판단해야합니다.
+// 첫 번째 글자는 0번째 인덱스로 보아 짝수번째 알파벳으로 처리해야 합니다.
 
-function solution(n) {
-    let yaksu = [];
-    for (let i = 1; i <= n; i++) {
-        if (n % i === 0) {
-            yaksu.push(i);
-        }
-    }
-    let answer = 0;
-    for (let i = 0; i < yaksu.length; i++) {
-        answer += yaksu[i];
-    }
-    return answer;
+function solution(s) {
+	let arr = [];
+	let b = true;
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] === " ") {
+			arr.push(s[i]);
+			b = true;
+		} else {
+			if (b) {
+				arr.push(s[i].toUpperCase());
+				b = !b;
+			} else {
+				arr.push(s[i].toLowerCase());
+				b = !b;
+			}
+		}
+	}
+	return arr.join("");
 }
-
-function solution2(n) {
-    let solution = 0;
-    for (let i = 1; i <= n; i++) {
-        if (n % i === 0) {
-            solution += i;
-        }
-    }
-    return solution;
-}
-
-

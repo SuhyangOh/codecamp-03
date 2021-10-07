@@ -1,81 +1,32 @@
-//1. 변수와 상수
-//001. 선언과 할당
-const name1 = "영희"
-
-//002. 재할당
-let name2 = "영희"
-name2 = "철수"
-
-//2. 배열
-//003. 배열의 선언과 할당
-let fruits = []
-
-fruits.push("사과")
-fruits.push("바나나")
-fruits.push("파인애플")
-
-//Reference Code
-// fruits = ["사과", "바나나", "파인애플"]
-
-//004. 배열의 기능
-let fruits = ["사과", "바나나", "파인애플"]
-let newFruits = []
-
-newFruits.push(fruits[fruits.length-1])
-
-//005. 배열의 기능
-
-let students = ["철수", "영희", "훈이", "짱구", "유리"]
-
-let newStudents = students.slice(0, 3)
-
-//006. 배열의 기능
-
-let fruits = ["사과", "바나나"]
-
-fruits.map((data) => ("맛있는" + data))
-
-//Reference Code
-fruits[0] = "맛있는 " + fruits[0]
-fruits[1] = "맛있는 " + fruits[1]
-
-//007. 문자열 배열
-const number = "01012345678"
-
-let phone = []
-phone.push(number.slice(0,3))
-phone.push(number.slice(3,7))
-phone.push(number.slice(7,11))
-
-//3. 객체
-//008. 객체의 선언과 할당
-
-let student = {};
-student.name = "철수"
-
-//009. 객체의 키 & 값 추가
-const student = {
-	name: "철수",
-	age: 8,
-};
-
-
-const school = {
-	name: "다람쥐초등학교",
-	teacher: "다람이",
+// 짝수와 홀수
+function solution(num) {
+    return num % 2 ? "Odd" : "Even";
 }
 
-student.school = school
+// 평균 구하기
+function solution(arr) {
+    let answer = 0;
+    for (let i = 0; i < arr.length; i++) {
+        answer += arr[i];
+    }
+    return answer / arr.length;
+}
 
+//가운데 글자 가져오기
+function solution(s) {
+    let m = s.length / 2 ;
+    if (s.length % 2 === 1) {
+        m -= 0.5;
+        return s[m];
+    } else {
+        return s[m - 1] + s[m];
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
+// mentor 풀이
+function solution2(s) {
+    const half = Math.floor(s.length / 2);
+    return s.length % 2 === 0
+        ? s[half - 1] + s[half]
+        : s[half]
+}

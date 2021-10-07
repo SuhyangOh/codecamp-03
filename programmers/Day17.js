@@ -1,26 +1,25 @@
-// 내적
-function solution(a, b) {
-	let answer = 0;
-	for (let i = 0; i < a.length; i++) {
-		answer += a[i] * b[i];
-	}
-	return answer;
-}
-
-// 제일 작은 수 제거하기
-function solution(arr) {
-	if (arr.length == 1) {
-		return [-1];
-	} else {
-		let value = arr[0];
-		let index = 0;
-		for (let i = 1; i < arr.length; i++) {
-			if (value > arr[i]) {
-				value = arr[i];
-				index = i;
+//행렬의 덧셈
+function solution(arr1, arr2) {
+	let finalarr = [];
+	let arr = [];
+	for (let i = 0; i < arr1.length; i++) {
+		for (let j = 0; j < arr1[i].length; j++) {
+			arr.push(arr1[i][j] + arr2[i][j]);
+			if (j === arr1[i].length - 1) {
+				finalarr.push(arr);
+				arr = [];
 			}
 		}
-		arr.splice(index, 1);
-		return arr;
 	}
+
+	return finalarr;
+}
+
+function solution(arr1, arr2) {
+	const answer = arr1.map((num1, i) => {
+		return num1.map((num2, j) => {
+			return num2 + arr2[i][j];
+		});
+	});
+	return answer;
 }
