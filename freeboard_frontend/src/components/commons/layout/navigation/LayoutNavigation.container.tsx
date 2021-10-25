@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { MouseEvent } from "react";
 import LayoutNavigationUI from "./LayoutNavigation.presenter";
 
 export default function LayoutNavigation() {
@@ -8,6 +7,14 @@ export default function LayoutNavigation() {
   function onClickMenu(event) {
     router.push(event.target.id);
   }
+  function onClickMarket(event) {
+      router.push(event.target.id)
+  }
 
-  return <LayoutNavigationUI onClickMenu={onClickMenu} />;
+  return (
+    <LayoutNavigationUI 
+        onClickMarket={onClickMarket}
+        onClickMenu={onClickMenu} 
+    />
+  )
 }

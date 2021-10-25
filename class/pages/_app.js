@@ -4,6 +4,7 @@ import {
 	ApolloProvider,
 	InMemoryCache,
 	ApolloLink,
+	gql,
 } from "@apollo/client";
 import { Global } from "@emotion/react";
 import { quiz13Styles } from "../src/commons/styles/quiz13Styles";
@@ -13,6 +14,8 @@ import Layout from "../src/components/commons/layout";
 import { initializeApp } from "firebase/app";
 import { createUploadLink } from "apollo-upload-client";
 import { createContext, useEffect, useState } from "react";
+import { onError } from "@apollo/client/link/error";
+import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
 export const firebaseApp = initializeApp({
 	apiKey: "AIzaSyCMKpO6dXogXezo5gDZETWKidf6uG90LJU",
@@ -35,19 +38,39 @@ function MyApp({ Component, pageProps }) {
 		setUserInfo: setUserInfo,
 	};
 	useEffect(() => {
-		const accessToken = localStorage.getItem("accessToken") || "";
-		setAccessToken(accessToken);
+		// const accessToken = localStorage.getItem("accessToken") || "";
+		// setAccessToken(accessToken);
+		if (localStorage.getItem("refreshToken"))
+			getAccessToken(setAccessToken);
 	}, []);
 
+	const errorLink = onError((graphQLErrors, operation, forward) => {
+		if (graphQLErrors)
+			for (const err of graphQLErrors) {
+				if (err.extensions?.code === "UNAUTHENTICATED") {
+					operation.setContext({
+						headers: {
+							...operation.getContext().headers,
+							authorization: `Bearer ${getAccessToken(
+								setAccessToken
+							)}`,
+						},
+					});
+					return forward(operation);
+				}
+			}
+	});
+
 	const uploadLink = createUploadLink({
-		uri: "http://backend03.codebootcamp.co.kr/graphql",
+		uri: "https://backend03.codebootcamp.co.kr/graphql",
 		headers: {
 			authorization: `Bearer ${accessToken}`,
 		},
+		credentials: "include",
 	});
 
 	const client = new ApolloClient({
-		link: ApolloLink.from([uploadLink]),
+		link: ApolloLink.from([uploadLink, errorLink]),
 		cache: new InMemoryCache(),
 	});
 

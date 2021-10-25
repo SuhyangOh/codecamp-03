@@ -4,15 +4,7 @@ import LayoutHeader from "./header/LayoutHeader.container";
 import LayoutFooter from "./footer/LayoutFooter.container";
 
 const Wrapper = styled.div``;
-const Header = styled.div`
-	height: 200px;
-	background-color: red;
-`;
 const Body = styled.div``;
-const Footer = styled.div`
-	height: 300px;
-	background-color: blue;
-`;
 const SidebarWrapper = styled.div`
 	display: flex;
 `;
