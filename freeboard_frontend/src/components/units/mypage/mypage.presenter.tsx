@@ -1,5 +1,6 @@
 import MyMarket from "./mymarket/mymarket.container";
 import { MpDiv, MpName, MpTitle, MpWrapper, MyPage } from "./mypage.styles";
+import MyPoint from "./mypoint/mypoint.container";
 
 export default function MyPageUI(props) {
 	return (
@@ -12,6 +13,7 @@ export default function MyPageUI(props) {
 				<MpDiv onClick={props.onClickProfile}>내 프로필</MpDiv>
 			</MpWrapper>
 			{props.market && <MyMarket />}
+			{props.point && <MyPoint />}
 		</MyPage>
 	);
 }
