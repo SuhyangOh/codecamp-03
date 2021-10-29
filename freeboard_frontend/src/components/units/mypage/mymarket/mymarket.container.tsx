@@ -1,7 +1,5 @@
 import { useState } from "react";
-import MyItems from "./myitems/myitems.container";
 import MyMarketUI from "./mymarket.presenter";
-import MyPicks from "./mypicks/mypicks.container";
 
 export default function MyMarket() {
 	const [items, setItems] = useState(true);

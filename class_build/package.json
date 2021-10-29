@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "next dev",
 		"build:ssg": "next build && next export",
-		"start:ssr": "next start",
+		"build:ssr": "next build",
+		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {

@@ -5,7 +5,5 @@ export default function TotalPoint() {
 	const { data: total } = useQuery(FETCH_POINT_TRANSACTIONS, {
 		variables: { page: 1 },
 	});
-
-	console.log(total);
 	return <TotalPointUI total={total} />;
 }

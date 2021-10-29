@@ -36,6 +36,20 @@ export const Column = styled.div`
 	text-align: center;
 	width: 10%;
 `;
+export const Column16 = styled.div`
+	text-align: center;
+	width: 16%;
+`;
+
+export const Column32 = styled.div`
+	text-align: center;
+	width: 32%;
+`;
+
+export const ColumnPoint = styled.div`
+	text-align: center;
+	width: 250px;
+`;
 export const ColumnTitle = styled.div`
 	width: 60%;
 	text-align: center;
@@ -55,6 +69,8 @@ export const Mydiv = styled.div`
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 24px;
+	margin-left: 10px;
+	margin-right: 10px;
 `;
 
 export const MpWrapper = styled.div`
